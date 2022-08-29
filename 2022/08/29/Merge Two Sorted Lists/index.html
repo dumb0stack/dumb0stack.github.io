@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Merge Two Sorted Lists - Hexo</title>
+<title>Merge Two Sorted Lists - DumbStack</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,7 +10,7 @@
 
 
 
-<meta name="description" content="">
+<meta name="description" content="Now I realize, it's a comedy.">
 
 
 
@@ -20,12 +20,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Merge Two Sorted Lists">
 <meta property="og:url" content="http://example.com/2022/08/29/Merge%20Two%20Sorted%20Lists/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="DumbStack">
 <meta property="og:description" content="You are given the heads of two sorted linked lists list1 and list2. Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists. Return the">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-28T16:28:47.000Z">
-<meta property="article:modified_time" content="2022-08-28T16:34:33.224Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-08-29T02:29:42.259Z">
+<meta property="article:author" content="Joker">
 <meta property="article:tag" content="Two pointers">
 <meta property="article:tag" content="Iterative">
 <meta property="article:tag" content="Recursion">
@@ -35,7 +35,7 @@
 
 
 
-<link rel="icon" href="/favicon.png">
+<link rel="icon" href="https://fygod.xyz/assets/favicon-gwfaaeza.png">
 
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
@@ -131,7 +131,7 @@
             </div>
             
             
-            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/FYGODYF/FYGODYF.github.io">
                 
                 <i class="fab fa-github"></i>
                 
@@ -175,13 +175,13 @@
         <html><head></head><body><p>You are given the heads of two sorted linked lists list1 and list2.</p>
 <p>Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.</p>
 <p>Return the head of the merged linked list.</p>
-<p>来源：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists">力扣（LeetCode）</a></p>
 <figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: list1 = [1,2,4], list2 = [1,3,4]</span><br><span class="line">Output: [1,1,2,3,4,4]</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: list1 = [], list2 = []</span><br><span class="line">Output: []</span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: list1 = [], list2 = [0]</span><br><span class="line">Output: [0]</span><br></pre></td></tr></tbody></table></figure>
 
+<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists">力扣（LeetCode）</a></p>
 <span id="more"></span>
 
 <h4 id="循环-双指针"><a href="#循环-双指针" class="headerlink" title="循环+双指针"></a>循环+双指针</h4><figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="title class_">mergeTwoSortedLists</span> {</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="title class_">ListNode</span> {</span><br><span class="line">        <span class="hljs-type">int</span> val;</span><br><span class="line">        ListNode next;</span><br><span class="line"></span><br><span class="line">        ListNode(<span class="hljs-type">int</span> val) {</span><br><span class="line">            <span class="hljs-built_in">this</span>.val = val;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ListNode <span class="title function_">mergeTwoLists</span><span class="hljs-params">(ListNode list1, ListNode list2)</span> {</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">resultNode</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">0</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> resultNode;</span><br><span class="line">        <span class="hljs-keyword">while</span> (list1 != <span class="hljs-literal">null</span> &amp;&amp; list2 != <span class="hljs-literal">null</span>) {</span><br><span class="line">            <span class="hljs-keyword">if</span> (list1.val &lt; list2.val) {</span><br><span class="line">                p.next = list1;</span><br><span class="line">                list1 = list1.next;</span><br><span class="line">            } <span class="hljs-keyword">else</span> {</span><br><span class="line">                p.next = list2;</span><br><span class="line">                list2 = list2.next;</span><br><span class="line">            }</span><br><span class="line">            p = p.next;</span><br><span class="line">        }</span><br><span class="line">        <span class="hljs-keyword">if</span> (list1 != <span class="hljs-literal">null</span>) p.next = list1;</span><br><span class="line">        <span class="hljs-keyword">if</span> (list2 != <span class="hljs-literal">null</span>) p.next = list2;</span><br><span class="line">        <span class="hljs-keyword">return</span> resultNode.next;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="title function_">main</span><span class="hljs-params">(String[] args)</span> {</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">1</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">1</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">2</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">3</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node5</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">4</span>);</span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node6</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">ListNode</span>(<span class="hljs-number">4</span>);</span><br><span class="line"></span><br><span class="line">        node1.next = node3;</span><br><span class="line">        node3.next = node5;</span><br><span class="line">        node2.next = node4;</span><br><span class="line">        node4.next = node6;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-type">ListNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> mergeTwoLists(node1, node2);</span><br><span class="line">        <span class="hljs-keyword">while</span> (node != <span class="hljs-literal">null</span>) {</span><br><span class="line">            System.out.print(node.val + <span class="hljs-string">" "</span>);</span><br><span class="line">            node = node.next;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -260,7 +260,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
-                &copy; 2022 John Doe&nbsp;
+                &copy; 2022 Joker&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
                         target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
@@ -271,7 +271,7 @@
                 <div class="columns is-mobile is-multiline is-centered">
                 
                     
-                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/FYGODYF/FYGODYF.github.io">
                     
                     GitHub
                     
