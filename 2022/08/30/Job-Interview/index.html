@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Categories - DumbStack</title>
+<title>Job Interview - DumbStack</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,32 +16,16 @@
 
 
 
-    <meta name="description" content="Now I realize, it&#39;s a comedy.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DumbStack">
-<meta property="og:url" content="http://example.com/categories/index.html">
+    <meta name="description" content="进程和线程的区别？ 进程是资源分配的最小单位，线程是任务执行的最小单位。 进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此 CPU 切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。 线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Job Interview">
+<meta property="og:url" content="http://example.com/2022/08/30/Job-Interview/index.html">
 <meta property="og:site_name" content="DumbStack">
-<meta property="og:description" content="Now I realize, it&#39;s a comedy.">
+<meta property="og:description" content="进程和线程的区别？ 进程是资源分配的最小单位，线程是任务执行的最小单位。 进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此 CPU 切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。 线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-30T09:40:34.000Z">
+<meta property="article:modified_time" content="2022-08-30T09:42:42.516Z">
 <meta property="article:author" content="Joker">
-<meta property="article:tag" content="Reading">
-<meta property="article:tag" content="HashMap">
-<meta property="article:tag" content="Iterative">
-<meta property="article:tag" content="Recursion">
-<meta property="article:tag" content="String">
-<meta property="article:tag" content="StringBuffer">
-<meta property="article:tag" content="StringBuilder">
-<meta property="article:tag" content="GC">
-<meta property="article:tag" content="Summary">
-<meta property="article:tag" content="Vocabulary">
-<meta property="article:tag" content="Two pointers">
-<meta property="article:tag" content="Stack">
-<meta property="article:tag" content="Queue">
-<meta property="article:tag" content="Traverse">
-<meta property="article:tag" content="Auxiliary Stack">
-<meta property="article:tag" content="HashSet">
-<meta property="article:tag" content="Fast and slow pointers">
-<meta property="article:tag" content="Binary Tree">
 <meta name="twitter:card" content="summary">
 
 
@@ -107,7 +91,7 @@
             <a class="navbar-item "
                href="/archives">Archives</a>
             
-            <a class="navbar-item is-active"
+            <a class="navbar-item "
                href="/categories">Documentation</a>
             
             <a class="navbar-item "
@@ -125,6 +109,20 @@
             </a>
             
             
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Table of Contents">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#进程和线程的区别？">1&nbsp;&nbsp;<b>进程和线程的区别？</b></a>
+                    
+                </div>
+            </div>
+            
             
             <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
                 
@@ -137,34 +135,89 @@
     </div>
 </nav>
 
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5><i class="far fa-folder"></i>Categories</h5>
-        </div>
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Job Interview
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-30T09:40:34.000Z" itemprop="datePublished">Aug 30 2022</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 minutes read (About 314 words)
+        </span>
+        
     </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="columns is-variable is-1 is-multiline is-mobile">
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h4 id="进程和线程的区别？"><a href="#进程和线程的区别？" class="headerlink" title="进程和线程的区别？"></a>进程和线程的区别？</h4><ul>
+<li>进程是资源分配的最小单位，线程是任务执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此 CPU 切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</li>
+<li>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</li>
+</ul>
+</body></html>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/Tips/">Tips&nbsp;(3)</a>
-            </span>
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/DataStructure/">DataStructure&nbsp;(10)</a>
-            </span>
+            <a href="/2022/08/30/Leetcode%20Binary-Tree/">Leetcode Binary-Tree</a>
             
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/JVM/">JVM&nbsp;(1)</a>
-            </span>
-            
-            <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/categories/News/">News&nbsp;(1)</a>
-            </span>
-            
-        </div>
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=630b7a7dabecf600135ed395&amp;product=inline-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: '4rh6eBEX06S0WVGKwyp0WHUL-gzGzoHsz',
+        appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
+        notify: true,
+        verify: true,
+        avatar: 'retro',
+        placeholder: 'ヾﾉ≧∀≦)ヾ',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: ''
+    })
+</script>
+
+
+</div>
+
     </div>
 </section>
     <footer class="footer">
