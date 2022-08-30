@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/08/30/1/1661864741/zRO27VuN_wallhaven-q213e5.png">
 <meta property="article:published_time" content="2022-08-30T09:40:34.000Z">
-<meta property="article:modified_time" content="2022-08-30T13:14:45.805Z">
+<meta property="article:modified_time" content="2022-08-30T13:33:03.582Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="Job Interview">
 <meta property="article:tag" content="Thread">
@@ -174,7 +174,7 @@
         <span class="column is-narrow">
             
             
-            3 minutes read (About 428 words)
+            3 minutes read (About 445 words)
         </span>
         
     </div>
@@ -186,7 +186,7 @@
 
 <h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n5411R792">操作系统、进程管理、文件系统、内存IO模型</a></p>
 <h4 id="进程和线程的区别？"><a href="#进程和线程的区别？" class="headerlink" title="进程和线程的区别？"></a>进程和线程的区别？</h4><ul>
-<li>进程是<strong>资源分配调度</strong>的最小单位，线程是<strong>任务执行</strong>的最小单位。</li>
+<li>进程是<strong>资源分配</strong>的最小单位，线程是<strong>任务执行，运算调度</strong>的最小单位，不能单独存在，包含在进程中。</li>
 <li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此 CPU 切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</li>
 <li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</li>
 <li>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</li>
@@ -254,7 +254,7 @@
         appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
         notify: true,
         verify: true,
-        avatar: 'retro',
+        avatar: 'robohash',
         placeholder: 'ヾﾉ≧∀≦)ヾ',
         meta: ['nick', 'mail'],
         visitor: true,
