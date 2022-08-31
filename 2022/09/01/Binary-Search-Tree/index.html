@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Binary Search Tree - DumbStack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="Now I realize, it's a comedy.">
+
+
+
+
+
+    <meta name="description" content="参考：二叉排序树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Binary Search Tree">
+<meta property="og:url" content="http://example.com/2022/09/01/Binary-Search-Tree/index.html">
+<meta property="og:site_name" content="DumbStack">
+<meta property="og:description" content="参考：二叉排序树">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg">
+<meta property="article:published_time" content="2022-08-31T16:26:01.000Z">
+<meta property="article:modified_time" content="2022-08-31T17:45:34.506Z">
+<meta property="article:author" content="Joker">
+<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="Search">
+<meta property="article:tag" content="Sort">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg">
+
+
+
+
+
+<link rel="icon" href="https://fygod.xyz/assets/favicon-gwfaaeza.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/images/logo.svg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/categories">Documentation</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tag</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Table of Contents">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#Method-1">1&nbsp;&nbsp;<b>Method 1</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#Method-2">2&nbsp;&nbsp;<b>Method 2</b></a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Binary Search Tree
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-31T16:26:01.000Z" itemprop="datePublished">Sep 1 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Notes/">Notes</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 minutes read (About 1119 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg"></p>
+<p><strong>参考：</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B4411H76f?p=127">二叉排序树</a></p>
+<span id="more"></span>
+
+<p><strong>数组和链表对数据的存取</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>链表</th>
+<th>数组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存取方式</td>
+<td>只能顺序</td>
+<td>顺序，随机</td>
+</tr>
+<tr>
+<td>存储位置</td>
+<td>不一定</td>
+<td>逻辑上相邻的元素实际物理存储也相邻</td>
+</tr>
+<tr>
+<td>存储空间</td>
+<td>依赖指针，存储密度低</td>
+<td>存储密度相对较高</td>
+</tr>
+<tr>
+<td>按值查找</td>
+<td>O(n)</td>
+<td>无序：O(n)；有序，折半查找O(logn)</td>
+</tr>
+<tr>
+<td>索引查找</td>
+<td>不支持随机访问，O(n)</td>
+<td>可以随机访问，O(1)</td>
+</tr>
+<tr>
+<td>插入删除</td>
+<td>修改指针即可</td>
+<td>平均需要移动$n/2$个元素</td>
+</tr>
+<tr>
+<td>空间分配</td>
+<td>按需申请，内存有空间即可分配</td>
+<td>静态，存储元素数量受限；动态，虽然存储空间可以扩充，需要移动大量元素，操作效率低，如果内存没有更大的连续存储空间，分配失败</td>
+</tr>
+</tbody></table>
+<p><strong>利用树来存取，既可以保证数据的检索，同时也可以保证数据的插入，删除，修改的速度。</strong></p>
+<p>Given preorder traversal of a binary search tree, construct the BST.</p>
+<p>For example, if the given traversal is {10, 5, 1, 7, 40, 50}, then the output should be the root of the following tree.</p>
+<h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h4><p><strong>time complexity: $O(n^2)$</strong></p>
+<p>The first element of preorder traversal is always root. We first construct the root. Then we find the index of the first element which is greater than the root. Let the index be ‘i’. The values between root and ‘i’ will be part of the left subtree, and the values between ‘i’(inclusive) and ‘n-1’ will be part of the right subtree. Divide given pre[] at index “i” and recur for left and right sub-trees. </p>
+<p>In {10, 5, 1, 7, 40, 50}, 10 is the first element, so we make it root. Now we look for the first element greater than 10, we find 40. So we know the structure of BST is as following. </p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Java program to construct BST from given preorder</span></span><br><span class="line"><span class="hljs-comment">// traversal</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// A binary tree node</span></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Node</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">int</span> data;</span><br><span class="line">	Node left, right;</span><br><span class="line"></span><br><span class="line">	Node(<span class="hljs-type">int</span> d)</span><br><span class="line">	{</span><br><span class="line">		data = d;</span><br><span class="line">		left = right = <span class="hljs-literal">null</span>;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Index</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">BinaryTree</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">Index</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">Index</span>();</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// A recursive function to construct Full from pre[].</span></span><br><span class="line">	<span class="hljs-comment">// preIndex is used to keep track of index in pre[].</span></span><br><span class="line">	Node <span class="title function_">constructTreeUtil</span><span class="hljs-params">(<span class="hljs-type">int</span> pre[], Index preIndex,</span></span><br><span class="line"><span class="hljs-params">						<span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high, <span class="hljs-type">int</span> size)</span></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// Base case</span></span><br><span class="line">		<span class="hljs-keyword">if</span> (preIndex.index &gt;= size || low &gt; high) {</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// The first node in preorder traversal is root. So</span></span><br><span class="line">		<span class="hljs-comment">// take the node at preIndex from pre[] and make it</span></span><br><span class="line">		<span class="hljs-comment">// root, and increment preIndex</span></span><br><span class="line">		<span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">Node</span>(pre[preIndex.index]);</span><br><span class="line">		preIndex.index = preIndex.index + <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// If the current subarray has only one element, no</span></span><br><span class="line">		<span class="hljs-comment">// need to recur</span></span><br><span class="line">		<span class="hljs-keyword">if</span> (low == high) {</span><br><span class="line">			<span class="hljs-keyword">return</span> root;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// Search for the first element greater than root</span></span><br><span class="line">		<span class="hljs-type">int</span> i;</span><br><span class="line">		<span class="hljs-keyword">for</span> (i = low; i &lt;= high; ++i) {</span><br><span class="line">			<span class="hljs-keyword">if</span> (pre[i] &gt; root.data) {</span><br><span class="line">				<span class="hljs-keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// Use the index of element found in preorder to</span></span><br><span class="line">		<span class="hljs-comment">// divide preorder array in two parts. Left subtree</span></span><br><span class="line">		<span class="hljs-comment">// and right subtree</span></span><br><span class="line">		root.left = constructTreeUtil(</span><br><span class="line">			pre, preIndex, preIndex.index, i - <span class="hljs-number">1</span>, size);</span><br><span class="line">		root.right = constructTreeUtil(pre, preIndex, i,</span><br><span class="line">									high, size);</span><br><span class="line"></span><br><span class="line">		<span class="hljs-keyword">return</span> root;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// The main function to construct BST from given</span></span><br><span class="line">	<span class="hljs-comment">// preorder traversal. This function mainly uses</span></span><br><span class="line">	<span class="hljs-comment">// constructTreeUtil()</span></span><br><span class="line">	Node <span class="title function_">constructTree</span><span class="hljs-params">(<span class="hljs-type">int</span> pre[], <span class="hljs-type">int</span> size)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-keyword">return</span> constructTreeUtil(pre, index, <span class="hljs-number">0</span>, size - <span class="hljs-number">1</span>,</span><br><span class="line">								size);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// A utility function to print inorder traversal of a</span></span><br><span class="line">	<span class="hljs-comment">// Binary Tree</span></span><br><span class="line">	<span class="hljs-keyword">void</span> <span class="title function_">printInorder</span><span class="hljs-params">(Node node)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) {</span><br><span class="line">			<span class="hljs-keyword">return</span>;</span><br><span class="line">		}</span><br><span class="line">		printInorder(node.left);</span><br><span class="line">		System.out.print(node.data + <span class="hljs-string">" "</span>);</span><br><span class="line">		printInorder(node.right);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// Driver code</span></span><br><span class="line">	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="title function_">main</span><span class="hljs-params">(String[] args)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-type">BinaryTree</span> <span class="hljs-variable">tree</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">BinaryTree</span>();</span><br><span class="line">		<span class="hljs-type">int</span> pre[] = <span class="hljs-keyword">new</span> <span class="title class_">int</span>[] { <span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span> };</span><br><span class="line">		<span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> pre.length;</span><br><span class="line">		<span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> tree.constructTree(pre, size);</span><br><span class="line">		System.out.println(</span><br><span class="line">			<span class="hljs-string">"Inorder traversal of the constructed tree is "</span>);</span><br><span class="line">		tree.printInorder(root);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4><p><strong>time complexity: O(n)</strong></p>
+<p>The trick is to set a range {min .. max} for every node. Initialize the range as {INT_MIN .. INT_MAX}. The first node will definitely be in range, so create a root node. To construct the left subtree, set the range as {INT_MIN …root-&gt;data}. If a value is in the range {INT_MIN .. root-&gt;data}, the values are part of the left subtree. To construct the right subtree, set the range as {root-&gt;data..max .. INT_MAX}. </p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Java program to construct BST from given preorder</span></span><br><span class="line"><span class="hljs-comment">// traversal</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// A binary tree node</span></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Node</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">int</span> data;</span><br><span class="line">	Node left, right;</span><br><span class="line"></span><br><span class="line">	Node(<span class="hljs-type">int</span> d)</span><br><span class="line">	{</span><br><span class="line">		data = d;</span><br><span class="line">		left = right = <span class="hljs-literal">null</span>;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Index</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">BinaryTree</span> {</span><br><span class="line"></span><br><span class="line">	<span class="hljs-type">Index</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">Index</span>();</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// A recursive function to construct BST from pre[].</span></span><br><span class="line">	<span class="hljs-comment">// preIndex is used to keep track of index in pre[].</span></span><br><span class="line">	Node <span class="title function_">constructTreeUtil</span><span class="hljs-params">(<span class="hljs-type">int</span> pre[], Index preIndex,</span></span><br><span class="line"><span class="hljs-params">						<span class="hljs-type">int</span> key, <span class="hljs-type">int</span> min, <span class="hljs-type">int</span> max,</span></span><br><span class="line"><span class="hljs-params">						<span class="hljs-type">int</span> size)</span></span><br><span class="line">	{</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// Base case</span></span><br><span class="line">		<span class="hljs-keyword">if</span> (preIndex.index &gt;= size) {</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// If current element of pre[] is in range, then</span></span><br><span class="line">		<span class="hljs-comment">// only it is part of current subtree</span></span><br><span class="line">		<span class="hljs-keyword">if</span> (key &gt; min &amp;&amp; key &lt; max) {</span><br><span class="line"></span><br><span class="line">			<span class="hljs-comment">// Allocate memory for root of this</span></span><br><span class="line">			<span class="hljs-comment">// subtree and increment *preIndex</span></span><br><span class="line">			root = <span class="hljs-keyword">new</span> <span class="title class_">Node</span>(key);</span><br><span class="line">			preIndex.index = preIndex.index + <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="hljs-keyword">if</span> (preIndex.index &lt; size) {</span><br><span class="line"></span><br><span class="line">				<span class="hljs-comment">// Construct the subtree under root</span></span><br><span class="line">				<span class="hljs-comment">// All nodes which are in range {min .. key}</span></span><br><span class="line">				<span class="hljs-comment">// will go in left subtree, and first such</span></span><br><span class="line">				<span class="hljs-comment">// node will be root of left subtree.</span></span><br><span class="line">				root.left = constructTreeUtil(</span><br><span class="line">					pre, preIndex, pre[preIndex.index], min,</span><br><span class="line">					key, size);</span><br><span class="line">			}</span><br><span class="line">			<span class="hljs-keyword">if</span> (preIndex.index &lt; size) {</span><br><span class="line">				<span class="hljs-comment">// All nodes which are in range {key..max}</span></span><br><span class="line">				<span class="hljs-comment">// will go in right subtree, and first such</span></span><br><span class="line">				<span class="hljs-comment">// node will be root of right subtree.</span></span><br><span class="line">				root.right = constructTreeUtil(</span><br><span class="line">					pre, preIndex, pre[preIndex.index], key,</span><br><span class="line">					max, size);</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="hljs-keyword">return</span> root;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// The main function to construct BST from given</span></span><br><span class="line">	<span class="hljs-comment">// preorder traversal. This function mainly uses</span></span><br><span class="line">	<span class="hljs-comment">// constructTreeUtil()</span></span><br><span class="line">	Node <span class="title function_">constructTree</span><span class="hljs-params">(<span class="hljs-type">int</span> pre[], <span class="hljs-type">int</span> size)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-type">int</span> <span class="hljs-variable">preIndex</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">return</span> constructTreeUtil(pre, index, pre[<span class="hljs-number">0</span>],</span><br><span class="line">								Integer.MIN_VALUE,</span><br><span class="line">								Integer.MAX_VALUE, size);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// A utility function to print inorder traversal of a</span></span><br><span class="line">	<span class="hljs-comment">// Binary Tree</span></span><br><span class="line">	<span class="hljs-keyword">void</span> <span class="title function_">printInorder</span><span class="hljs-params">(Node node)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-keyword">if</span> (node == <span class="hljs-literal">null</span>) {</span><br><span class="line">			<span class="hljs-keyword">return</span>;</span><br><span class="line">		}</span><br><span class="line">		printInorder(node.left);</span><br><span class="line">		System.out.print(node.data + <span class="hljs-string">" "</span>);</span><br><span class="line">		printInorder(node.right);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">// Driver code</span></span><br><span class="line">	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="title function_">main</span><span class="hljs-params">(String[] args)</span></span><br><span class="line">	{</span><br><span class="line">		<span class="hljs-type">BinaryTree</span> <span class="hljs-variable">tree</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">BinaryTree</span>();</span><br><span class="line">		<span class="hljs-type">int</span> pre[] = <span class="hljs-keyword">new</span> <span class="title class_">int</span>[] { <span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span> };</span><br><span class="line">		<span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> pre.length;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// Function call</span></span><br><span class="line">		<span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> tree.constructTree(pre, size);</span><br><span class="line">		System.out.println(</span><br><span class="line">			<span class="hljs-string">"Inorder traversal of the constructed tree is "</span>);</span><br><span class="line">		tree.printInorder(root);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Binary-Tree/">#Binary Tree</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Search/">#Search</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Sort/">#Sort</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/30/Basic%20Concepts/">Basic Concepts</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=630b7a7dabecf600135ed395&amp;product=inline-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: '4rh6eBEX06S0WVGKwyp0WHUL-gzGzoHsz',
+        appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
+        notify: true,
+        verify: true,
+        avatar: 'retro',
+        placeholder: 'ヾﾉ≧∀≦)ヾ',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: ''
+    })
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Joker&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
