@@ -25,13 +25,12 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/08/30/1/1661864741/zRO27VuN_wallhaven-q213e5.png">
 <meta property="article:published_time" content="2022-08-30T09:40:34.000Z">
-<meta property="article:modified_time" content="2022-08-30T13:33:03.582Z">
+<meta property="article:modified_time" content="2022-08-31T12:48:01.471Z">
 <meta property="article:author" content="Joker">
-<meta property="article:tag" content="Job Interview">
 <meta property="article:tag" content="Thread">
 <meta property="article:tag" content="Process">
 <meta property="article:tag" content="Schedule">
-<meta property="article:tag" content="Operating System">
+<meta property="article:tag" content="IO Model">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/08/30/1/1661864741/zRO27VuN_wallhaven-q213e5.png">
 
@@ -104,9 +103,6 @@
             <a class="navbar-item "
                href="/tags">Tag</a>
             
-            <a class="navbar-item "
-               href="/about">About</a>
-            
         </div>
         
         <div class="navbar-menu navbar-end">
@@ -134,6 +130,10 @@
                     
                     
                     <a class="navbar-item" href="#进程的调度算法有哪些？">1.2&nbsp;&nbsp;进程的调度算法有哪些？</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#常用-IO-模型？">1.3&nbsp;&nbsp;常用 IO 模型？</a>
                     
                 </div>
             </div>
@@ -174,7 +174,7 @@
         <span class="column is-narrow">
             
             
-            3 minutes read (About 445 words)
+            8 minutes read (About 1238 words)
         </span>
         
     </div>
@@ -199,13 +199,38 @@
 <li>时间片轮转调度</li>
 <li>多级反馈队列调度</li>
 </ul>
+<h4 id="常用-IO-模型？"><a href="#常用-IO-模型？" class="headerlink" title="常用 IO 模型？"></a>常用 IO 模型？</h4><p><strong>关注消息通信机制:</strong></p>
+<p>a) 同步：调用一个功能，在功能结果没有返回之前，一直等待结果返回。</p>
+<p>b) 异步：调用一个功能，调用立刻返回，但调用者不能立刻得到结果。调用者可以继续后续的操作，其结果一般通过状态，回调函数来通知调用者。</p>
+<p><strong>等待调用结果时的状态：</strong></p>
+<ul>
+<li><p>阻塞：调用一个函数，当调用结果返回之前，当前线程会被挂起，只有得到结果之后才会返回。</p>
+</li>
+<li><p>非阻塞：调用一个函数，不能立刻得到结果之前，调用不能阻塞当前线程。一个输入操作通常包括两个阶段：</p>
+<ol>
+<li>等待数据准备好</li>
+<li>从内核向进程复制数据</li>
+</ol>
+</li>
+</ul>
+<p>对于一个套接字上的输入操作，第一步通常涉及等待数据从网络中到达。当所等待数据到达时，它被复制到内核中的某个缓冲区。第二步就是把数据从内核缓冲区复制到应用进程缓冲区。</p>
+<ul>
+<li><p>阻塞 IO 模型：应用进程被阻塞，直到数据从内核缓冲区复制到应用进程缓冲区中才返回。</p>
+</li>
+<li><p>非阻塞IO模型：进程发起 IO 系统调用后，内核返回一个错误码而不会被阻塞；应用进程可以继续执行，但是需要不断的执行系统调用来获知 I/O 是否完成。如果内核缓冲区有数据，内核就会把数据返回进程。</p>
+</li>
+<li><p>IO 复用模型：使用 select 或者 poll 等待数据，可以等待多个套接字中的任何一个变为可读。这一过程会被阻塞，当某一个套接字可读时返回，之后把数据从内核复制到进程中。（在多路复用 IO 模型中，会有一个线程不断去轮询多个 socket 的状态，只有当 socket 真正有读写事件时，才真正调用实际的 IO 读写操作。因为在多路复用 IO 模型中，只需要使用一个线程就可以管理多个 socket，并且只有在真正有 socket 读写事件进行时，才会使用 IO 资源，所以它大大减少了资源占用。）</p>
+</li>
+<li><p>信号驱动 IO 模型：当进程发起一个 IO 操作，会向内核注册一个信号处理函数，然后进程返回不阻塞；当内核数据就绪时会发送一个信号给进程，进程便在信号处理函数中调用 IO 读取数据。</p>
+</li>
+<li><p>异步 IO 模型：当进程发起一个 IO 操作，进程返回不阻塞，但也不能返回结果；内核把整个 IO 处理完后，会通知进程结果。如果IO操作成功则进程直接获取到数据。</p>
+</li>
+</ul>
 </body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Job-Interview/">#Job Interview</a></span>
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Thread/">#Thread</a></span>
     
@@ -213,7 +238,7 @@
     
         <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Schedule/">#Schedule</a></span>
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Operating-System/">#Operating System</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/IO-Model/">#IO Model</a></span>
     
     </div>
     
@@ -254,7 +279,7 @@
         appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
         notify: true,
         verify: true,
-        avatar: 'identicon',
+        avatar: 'retro',
         placeholder: 'ヾﾉ≧∀≦)ヾ',
         meta: ['nick', 'mail'],
         visitor: true,
