@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Basic AI Revision - DumbStack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="Now I realize, it's a comedy.">
+
+
+
+
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Basic AI Revision">
+<meta property="og:url" content="http://example.com/2022/09/04/Basic-AI-Revision/index.html">
+<meta property="og:site_name" content="DumbStack">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661781365/o62n1jl2_wallhaven-dpkedl-compressed.jpg">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:07:45.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:08:16.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:07:45.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:08:16.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
+<meta property="article:published_time" content="2022-09-04T01:49:59.000Z">
+<meta property="article:modified_time" content="2022-09-04T03:04:40.182Z">
+<meta property="article:author" content="Joker">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661781365/o62n1jl2_wallhaven-dpkedl-compressed.jpg">
+
+
+
+
+
+<link rel="icon" href="https://fygod.xyz/assets/favicon-gwfaaeza.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/images/logo.svg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/categories">Documentation</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tag</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Table of Contents">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#人工智能有那些学派？它们的认知观有哪些？">1&nbsp;&nbsp;<b>人工智能有那些学派？它们的认知观有哪些？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#人工智能包含哪些要素？各要素在人工智能中的作用是什么？">2&nbsp;&nbsp;<b>人工智能包含哪些要素？各要素在人工智能中的作用是什么？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#人工智能的研究目标？">3&nbsp;&nbsp;<b>人工智能的研究目标？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#人工智能包含哪些内容？">4&nbsp;&nbsp;<b>人工智能包含哪些内容？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？">5&nbsp;&nbsp;<b>什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？">6&nbsp;&nbsp;<b>问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#谓词逻辑表示，什么是连词？什么是量词？">7&nbsp;&nbsp;<b>谓词逻辑表示，什么是连词？什么是量词？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#谓词公式？在谓词演算中，何是其递归定义？">8&nbsp;&nbsp;<b>谓词公式？在谓词演算中，何是其递归定义？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#谓词演算公式转化为子句集的一般步骤？（例子）">9&nbsp;&nbsp;<b>谓词演算公式转化为子句集的一般步骤？（例子）</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#图搜索算法的一般过程？">10&nbsp;&nbsp;<b>图搜索算法的一般过程？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#启发式搜索策略，如何定义？（了解）">11&nbsp;&nbsp;<b>启发式搜索策略，如何定义？（了解）</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#A-算法？（了解）">12&nbsp;&nbsp;<b>A*算法？（了解）</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）">13&nbsp;&nbsp;<b>人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#遗传算法的基本原理？求解过程？">14&nbsp;&nbsp;<b>遗传算法的基本原理？求解过程？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#决策树的一般过程？最优属性选择划分的三种方法？">15&nbsp;&nbsp;<b>决策树的一般过程？最优属性选择划分的三种方法？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#专家系统的组成部分？开发步骤？（基本不考）">16&nbsp;&nbsp;<b>专家系统的组成部分？开发步骤？（基本不考）</b></a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Basic AI Revision
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-04T01:49:59.000Z" itemprop="datePublished">Sep 4 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Concepts/">Concepts</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            an hour read (About 7538 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661781365/o62n1jl2_wallhaven-dpkedl-compressed.jpg"></p>
+<span id="more"></span>
+
+<h3 id="人工智能有那些学派？它们的认知观有哪些？"><a href="#人工智能有那些学派？它们的认知观有哪些？" class="headerlink" title="人工智能有那些学派？它们的认知观有哪些？"></a>人工智能有那些学派？它们的认知观有哪些？</h3><ul>
+<li>符号主义（逻辑主义、心理学派、计算机学派）其原理主要为物理符号系统假设和有限合理性原理。符号主义认为人工智能源于数理逻辑。</li>
+<li>连接主义（仿生学派、生理学派）主要为神经网络及其间的连接机制和学习算法。连接主义认为人工智能源于仿生学，特别是人脑模型的研究。</li>
+<li>行为主义（进化主义、控制论学派）主要为控制论及感知-动作型控制系统。行为主义认为人工智能源于控制论。</li>
+</ul>
+<p><strong>What schools of thought are there in artificial intelligence? What are their cognitive views?</strong></p>
+<ul>
+<li>Symbolism (logical, psychological, and computer schools) is based on the assumption of physical symbolic systems and the principle of finite rationality. Symbolism believes that artificial intelligence has its roots in mathematical logic.</li>
+<li>Connectionism (bionic school, physiological school) focuses on neural networks and their interconnection mechanisms and learning algorithms. Connectionism believes that artificial intelligence originates from bionics, especially the study of human brain models.</li>
+<li>Behaviorism (evolutionism, cybernetics school) is mainly cybernetics and perception-action type control systems. Behaviorism argues that artificial intelligence originates from cybernetics.</li>
+</ul>
+<h3 id="人工智能包含哪些要素？各要素在人工智能中的作用是什么？"><a href="#人工智能包含哪些要素？各要素在人工智能中的作用是什么？" class="headerlink" title="人工智能包含哪些要素？各要素在人工智能中的作用是什么？"></a>人工智能包含哪些要素？各要素在人工智能中的作用是什么？</h3><p><em>包含要素：知识，数据，算法，算力，人才</em></p>
+<ul>
+<li>知识：人工智能源于知识，依赖知识；知识是人工智能的重要基础，专家系统，模糊计算等知识工程都是以知识为基础而发展起来的。</li>
+<li>数据：数据是人工智能之基础；神经计算，进化计算等计算智能都是以数据为基础而发展起来的。</li>
+<li>算法: 算法是人工智能之魂，是解题方案准确而完整的描述，是一系列求解问题的精准指令。</li>
+<li>算力：算力是人工智能之力。算力就是计算能力，机器在数学上的归纳和转化能力。计算能力不断提高，极大促进了人工智能的发展，特别是人工智能产业的蓬勃发展。</li>
+<li>人才：人工智能的要素和核心技术要通过人发挥作用，发展人工智能的关键是人才。培养足够多的各层次高素质人工智能人才，才能保证人工智能的顺利发展。</li>
+</ul>
+<p><strong>What elements are included in artificial intelligence? What is the role of each element in artificial intelligence?</strong></p>
+<p><em>Elements: knowledge, data, algorithm, arithmetic, talent</em></p>
+<ul>
+<li>Knowledge: Artificial intelligence originates from and relies on knowledge; knowledge is the important foundation of artificial intelligence, expert systems, fuzzy computing and other knowledge engineering are developed based on knowledge.</li>
+<li>Data: Data is the basis of AI; neural computing, evolutionary computing and other computational intelligence are developed on the basis of data.</li>
+<li>Algorithm: Algorithm is the soul of artificial intelligence, an accurate and complete description of the solution, a series of precise instructions for solving the problem.</li>
+<li>Arithmetic: Arithmetic is the power of artificial intelligence. Arithmetic is computational power, the ability of a machine to generalize and transform mathematically. The continuous improvement of computing power has greatly contributed to the development of artificial intelligence, especially the flourishing of the artificial intelligence industry.</li>
+<li>Talent: The elements and core technologies of artificial intelligence have to function through people, and the key to developing AI is talent. Cultivating enough high-quality artificial intelligence talents at all levels can ensure the smooth development of AI.</li>
+</ul>
+<h3 id="人工智能的研究目标？"><a href="#人工智能的研究目标？" class="headerlink" title="人工智能的研究目标？"></a>人工智能的研究目标？</h3><p><em>一般研究目标</em></p>
+<ul>
+<li>更好地理解人类智能，通过编写程序来模仿和检验有关人类智能的理论</li>
+<li>创造有用的灵巧程序，该程序能够执行一般需要人类专家才能实现的任务</li>
+</ul>
+<p><em>还有一种分类</em></p>
+<ul>
+<li>近期研究目标：建造智能计算机以代替人类的某些智力活动。主要研究依赖于现有的计算机去模拟人类某些智力行为的基本理论、基本方法。</li>
+<li>远期研究目标：探讨智能的基本机理，用自动机模仿人类的思维活动和智力功能。其中，最终目标（从研究内容出发)指的是理解人类的认识、有效的自动化、有效的智能拓展、超人的智力、通用问题求解、连贯性交谈、自治、学习、储存信息。</li>
+</ul>
+<p><strong>Research goals for artificial intelligence?</strong></p>
+<p><em>General research objectives</em></p>
+<ul>
+<li>To better understand human intelligence by writing programs to mimic and test theories about human intelligence</li>
+<li>Create useful dexterous programs that are capable of performing tasks that would normally require a human expert to achieve</li>
+</ul>
+<p><em>Another classification</em></p>
+<ul>
+<li>Recent research goal: to build intelligent computers to replace certain intellectual activities of human beings. The main research focuses on the basic theory and basic methods of relying on existing computers to simulate certain intellectual behaviors of humans.</li>
+<li>Long-term research goal: to explore the basic mechanism of intelligence and to imitate human thinking activities and intellectual functions with automata. Among them, the ultimate goals (from the research content) refer to understanding human cognition, effective automation, effective intelligence expansion, superhuman intelligence, generic problem solving, coherent conversation, autonomy, learning, and storage of information.</li>
+</ul>
+<h3 id="人工智能包含哪些内容？"><a href="#人工智能包含哪些内容？" class="headerlink" title="人工智能包含哪些内容？"></a>人工智能包含哪些内容？</h3><ul>
+<li>认知建模：说明人类在认知过程中是如何进行加工的</li>
+<li>知识表示：运用符号知识、算法和状态图来描述问题</li>
+<li>知识推理：从已知判断推导出一个新的判断或结论的过程</li>
+<li>计算智能：涉及神经计算、模糊计算、自然计算、蚁群计算等领域 </li>
+<li>知识应用：侧重于人工智能的学习在各领域的应用能力</li>
+<li>机器感知：使机器具有类似于人的感觉，包括视觉、听觉、嗅觉、力觉</li>
+<li>机器思维：对传感器和机器内部的工作信息进行有目的处理</li>
+<li>机器学习：使机器具有学习新知识和能力</li>
+<li>机器行为：智能系统具有表达和行动能力，如对话，描写，行走</li>
+<li>智能系统构建：开展对模型、系统构造等的构建研究</li>
+</ul>
+<p><strong>What does artificial intelligence involve?</strong></p>
+<ul>
+<li>Cognitive modeling: describing how humans process during cognition</li>
+<li>Knowledge representation: the use of symbolic knowledge, algorithms, and state diagrams to describe problems</li>
+<li>Intellectual reasoning: the process of deriving a new judgment or conclusion from a known judgment</li>
+<li>Computational Intelligence: involves the fields of neural computing, fuzzy computing, natural computing, ant colony computing, etc. </li>
+<li>Knowledge application: focuses on the ability to apply the learning of artificial intelligence in various fields</li>
+<li>Machine perception: making machines with human-like senses, including vision, hearing, smell, and force senses</li>
+<li>Machine Thinking: Purposeful processing of sensors and information about the inner workings of the machine</li>
+<li>Machine learning: enabling machines to have the ability to learn new knowledge and capabilities</li>
+<li>Machine behavior: intelligent systems with the ability to express and act, such as dialogue, portray, walk</li>
+<li>Intelligent system construction: conduct research on the construction of models, system constructs, etc.</li>
+</ul>
+<h3 id="什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？"><a href="#什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？" class="headerlink" title="什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？"></a>什么是状态空间表示法？完成某个问题的状态描述必须确定哪三件事？</h3><p>状态空间<code>state space</code>是利用状态变量和操作符表示系统或问题的有关知识的符号体系。其中状态是为描述某类不同类事物间差别而引入的一组最少变量的有序集合，操作符（算符）是使问题从一种状态变化到另一种状态的手段。<br><code>(S,F,G)</code><br><code>S</code>:初始状态集合<br><code>F</code>:操作符集合</p>
+<p><em>需要确定的三件事</em></p>
+<ul>
+<li>该状态的描述方式，特别是初始状态的描述</li>
+<li>操作符集合及其对状态描述的作用</li>
+<li>目标状态描述的特性</li>
+</ul>
+<p><strong>What is a state space representation? What three things must be determined to complete a state description of a particular problem?</strong></p>
+<p>The state space <code>state space</code> is a symbolic system that uses state variables and operators to represent the relevant knowledge of a system or problem. Where a state is an ordered set of a minimum number of variables introduced to describe the difference between different classes of things of a certain type, and an operator (operator) is a means to change a problem from one state to another.<br><code>(S,F,G)</code><br><code>S</code>:the set of initial states<br><code>F</code>:set of operators</p>
+<p><em>Three things that need to be determined</em></p>
+<ul>
+<li>The way this state is described, especially the initial state</li>
+<li>The set of operators and their role for the state description</li>
+<li>The properties of the target state description</li>
+</ul>
+<h3 id="问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？"><a href="#问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？" class="headerlink" title="问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？"></a>问题规约表示法的要点是什么？组成部分是什么？3、4层的汉诺塔问题如何解决？</h3><p>问题规约是另一种基于状态空间的问题描述与求解方法。已知问题的描述，从目标出发逆向推理，建立子问题以及子问题的子问题，直至最后把初始问题规约成一个平凡的本原问题集合。</p>
+<p><em>组成部分</em></p>
+<ul>
+<li>一个初始问题描述</li>
+<li>一套把问题转化成子问题的操作符</li>
+<li>一套本原问题描述</li>
+</ul>
+<p><em>汉诺塔问题的解决</em></p>
+<p>首先对于<code>3</code>层汉诺塔，由于目标是将所有盘子从<code>1</code>移至<code>3</code>柱，首先需要将<code>C</code>移至<code>3</code>柱，并且下面没有其它盘，所以<code>AB</code>盘需要先移动至<code>2</code>柱，等<code>C</code>到<code>3</code>柱后，再移至<code>3</code>柱，因此可以分为如下<code>3</code>个子问题</p>
+<ul>
+<li><code>AB</code>移动至<code>2</code>柱双圆盘难题</li>
+<li><code>C</code>移动至<code>3</code>柱单元盘难题</li>
+<li><code>AB</code>移动至<code>3</code>柱双圆盘难题</li>
+</ul>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:07:45.png" alt="2022-05-24T05:07:45.png"></p>
+<p>对于<code>4</code>层汉诺塔，同理</p>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:08:16.png" alt="2022-05-24T05:08:16.png"></p>
+<p><strong>What are the main points of the problem statute representation? What are the components and how are the 3 and 4 level Hannota problems solved?</strong></p>
+<p>The problem statute is another state space-based method for describing and solving problems. The description of the problem is known, reasoning backwards from the objective, building subproblems and subproblems of subproblems, until finally the initial problem is statuted into a mundane set of original problems.</p>
+<p><em>Component</em></p>
+<ul>
+<li>An initial problem description</li>
+<li>A set of operators for transforming the problem into subproblems</li>
+<li>A set of intrinsic problem descriptions</li>
+</ul>
+<p><em>A solution to the Hannota problem</em></p>
+<p>First of all for the <code>3</code> layer Hannota, since the goal is to move all discs from <code>1</code> to <code>3</code> column, first you need to move <code>C</code> to <code>3</code> column, and there are no other discs below, so <code>AB</code> disc needs to be moved to <code>2</code> column first, and then to <code>3</code> column after <code>C</code> gets to <code>3</code> column, so it can be divided into <code>3</code> subproblems as follows</p>
+<ul>
+<li><code>AB</code> move to <code>2</code> column double disc problem</li>
+<li><code>C</code> moves to the <code>3</code> column unit disk problem</li>
+<li><code>AB</code> moves to the <code>3</code> column double disc problem</li>
+</ul>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:07:45.png" alt="2022-05-24T05:07:45.png"></p>
+<p>For the <code>4</code>-layer Hanno tower, the same</p>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:08:16.png" alt="2022-05-24T05:08:16.png"></p>
+<h3 id="谓词逻辑表示，什么是连词？什么是量词？"><a href="#谓词逻辑表示，什么是连词？什么是量词？" class="headerlink" title="谓词逻辑表示，什么是连词？什么是量词？"></a>谓词逻辑表示，什么是连词？什么是量词？</h3><p>谓词逻辑的基本组成部分是谓词符号、变量符号、函数符号和常量符号，并用一些符号隔开，以表示论域内的关系。一般，原子公式由谓词符号和项组成，常量符号是最简单的项，用来表示论域内的物体或实体，变量符号也是项，不必明确涉及是哪一个实体，函数符号表示论域内的函数。</p>
+<p><em>连词</em></p>
+<p><code>∧</code>与（析取）、<code>∨</code>或（合取）、<code>→</code>蕴涵、<code>¬</code>否定</p>
+<p><em>量词</em></p>
+<p><code>∀</code>全称量词，表示“所有的”或“每一个”<br><code>∃</code>存在量词，表示“存在某个”或“至少有一个”</p>
+<p><em>量词的辖域</em></p>
+<p>位于量词后面的单个谓词或者用括弧括起来的谓词公式。辖域内与量词中同名的变元称为约束变元，不同名的变元称为自由变元。</p>
+<p><em>例如：</em></p>
+<p><code>(∃X)(P(X,Y) → Q(X,Y)) ∨ R(X,Y)</code><br><code>(∃X)</code>的辖域：<code>(P(X,Y) → Q(X,Y)) </code><br>该辖域内的<code>X</code>是约束变元，而在<code>R(X,Y)</code>中的<code>X</code>则是自由变元，例子中的所有<code>Y</code>都是自由变元。</p>
+<p><strong>Predicate logical representation, what is a conjunction? What is a quantifier?</strong></p>
+<p>The basic components of predicate logic are predicate symbols, variable symbols, function symbols, and constant symbols, separated by some symbols to represent relationships within the domain of the argument. In general, atomic formulas consist of predicate symbols and terms, constant symbols are the simplest terms used to represent objects or entities in the domain of the argument, variable symbols are also terms and do not have to explicitly involve which entity they are, and function symbols represent functions in the domain of the argument.</p>
+<p><em>The conjunction</em></p>
+<p><code>∧</code> with (parse), <code>∨</code> or (combine), <code>→</code> implication, <code>¬</code> negation</p>
+<p><em>Quantifiers</em></p>
+<p><code>∀</code> full quantifier for “all” or “every”<br><code>∃</code> existential quantifier, indicating “there is a certain” or “at least one”</p>
+<p><em>Jurisdiction of a quantifier</em></p>
+<p>A single predicate located after the quantifier or a predicate formula enclosed in parentheses. Variants in the domain with the same name as in the quantifier are called bound variants, and variants with different names are called free variants.</p>
+<p><em>For example</em></p>
+<p><code>(∃X)(P(X,Y) → Q(X,Y)) ∨ R(X,Y)</code><br>Jurisdiction of <code>(∃X)</code>: <code>(P(X,Y) → Q(X,Y)) </code><br><code>X</code> in this jurisdiction is a bounded variant, while <code>X</code> in <code>R(X,Y)</code> is a free variant, as well as all <code>Y</code> in example.</p>
+<h3 id="谓词公式？在谓词演算中，何是其递归定义？"><a href="#谓词公式？在谓词演算中，何是其递归定义？" class="headerlink" title="谓词公式？在谓词演算中，何是其递归定义？"></a>谓词公式？在谓词演算中，何是其递归定义？</h3><p><em>谓词公式</em></p>
+<p>用<code>P(x1,x2,...,xn)</code>表示一个<code>n</code>元谓词公式，其中<code>P</code>为<code>n</code>元谓词，<code>x1...xn</code>为客体变量或变元，通常把<code>P(x1,x2,...,xn)</code>叫做谓词演算的原子公式（原子谓词公式），可以用连词把谓词公式组成复合谓词公式，称为分子谓词公式。</p>
+<p><em>递归定义</em></p>
+<ul>
+<li>单个谓词，称为原子谓词公式</li>
+<li>若<code>A</code>是谓词公式，则<code>¬ A</code> 也是谓词公式</li>
+<li>若<code>A</code>、<code>B</code>都是谓词公式，则<code>A ∧ B</code> 、<code>A ∨ B</code> 、<code>A → B</code>、<code>A ←→ B</code> 也都是谓词公式</li>
+<li>若<code>A</code>是谓词公式，则<code>( ∀ X ) A</code>、<code>( ∃ X ) A </code>也都是谓词公式</li>
+</ul>
+<p>有限应用上述步骤所得到的公式也是谓词公式</p>
+<p>连接词的优先级别从高到低排列：<code>¬,∧,∨,→</code></p>
+<p><strong>Predicate formula? What is its recursive definition in the predicate algorithm?</strong></p>
+<p><em>The predicate formula</em></p>
+<p>Denote by <code>P(x1,x2,... ,xn)</code> to denote an <code>n</code> elementary predicate formula, where <code>P</code> is the <code>n</code> elementary predicate and <code>x1.. .xn</code> are the object variables or variables, and usually <code>P(x1,x2,... ,xn)</code> is called the atomic formula for predicate evaluation (atomic predicate formula), and the predicate formula can be formed into a compound predicate formula by concatenating the predicate formula, called the molecular predicate formula.</p>
+<ul>
+<li>Recursive definition*</li>
+</ul>
+<ul>
+<li>A single predicate, called an atomic predicate formula</li>
+<li>If <code>A</code> is a predicate formula, then <code>¬ A</code> is also a predicate formula</li>
+<li>If <code>A</code> and <code>B</code> are predicate formulas, then <code>A ∧ B</code>, <code>A ∨ B</code>, <code>A → B</code>, <code>A ←→ B</code> are also predicate formulas</li>
+<li>If <code>A</code> is a predicate formula, then <code>( ∀ X ) A</code>, <code>( ∃ X ) A</code> are also predicate formulas</li>
+</ul>
+<p>The formulas obtained by finite application of the above steps are also predicate formulas</p>
+<p>The conjunctions are ranked from highest to lowest priority: <code>¬,∧,∨,→</code></p>
+<h3 id="谓词演算公式转化为子句集的一般步骤？（例子）"><a href="#谓词演算公式转化为子句集的一般步骤？（例子）" class="headerlink" title="谓词演算公式转化为子句集的一般步骤？（例子）"></a>谓词演算公式转化为子句集的一般步骤？（例子）</h3><p>例如<code>(∀X)((∀y)P(x,y)→¬(∀y)(Q(x,y)→R(x,y)))</code></p>
+<ul>
+<li>消去蕴含和等价，<code>(∀X)(¬(∀y)P(x,y)∨¬(∀y)(¬Q(x,y)∨R(x,y)))</code></li>
+<li>移动否定符号仅靠谓词，<code>(∀X)((∃y)¬P(x,y)∨(∃y)¬(¬Q(x,y)∨R(x,y)))</code>再利用谓词公式的等价关系<code>(∀X)((∃y)¬P(x,y)∨(∃y)(Q(x,y)∧¬R(x,y)))</code></li>
+<li>变量标准化，使每个量词（不同量词的约束变元）采用不同的变元，<code>(∀X)((∃y)¬P(x,y)∨(∃z)(Q(x,z)∧¬R(x,z)))</code></li>
+<li>消去存在量词，<code>(∀X)(¬P(x,f(x))∨(Q(x,g(x))∧¬R(x,g(x))))</code></li>
+<li>化为前束形，所有的全称量词提前，由于例子只有一个全称量词且在串首无需改动</li>
+<li>化为Skolem标准型，<code>(∀X)((¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))))</code></li>
+<li>略去全称量词，<code>(¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x)))</code></li>
+<li>消去合取词，把母式用子句集表示，<code>¬P(x,f(x))∨Q(x,g(x)</code>、<code>¬P(x,f(x)∨¬R(x,g(x))</code></li>
+<li>子句变量标准化，<code>¬P(x,f(x))∨Q(x,g(x)</code>、<code>¬P(y,f(y)∨¬R(y,g(y))</code></li>
+</ul>
+<p>来自<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43249758/article/details/105835357">AI：谓词公式化为子句集</a></p>
+<p><strong>General steps for converting predicate algorithm formulas to clause sets? (example)</strong></p>
+<p>For example <code>(∀X)((∀y)P(x,y)→¬(∀y)(Q(x,y)→R(x,y)))</code></p>
+<ul>
+<li>Eliminate implication and equivalence, <code>(∀X)(¬(∀y)P(x,y)∨¬(∀y)(¬Q(x,y)∨R(x,y))</code></li>
+<li>Move the negation symbols by predicates only, <code>(∀X)((∃y)¬P(x,y)∨(∃y)¬(¬Q(x,y)∨R(x,y))</code> and then use the equivalence relation of the predicate formula <code>(∀X)((∃y)¬P(x,y)∨(∃y)(Q(x,y)∧¬R(x,y))</code>)</li>
+<li>Normalize the variables so that each quantifier (constraint variant of different quantifiers) uses a different variant, <code>(∀X)((∃y)¬P(x,y)∨(∃z)(Q(x,z)∧¬R(x,z)))</code></li>
+<li>Eliminate the existence quantifier, <code>(∀X)(¬P(x,f(x))∨(Q(x,g(x))∧¬R(x,g(x))))</code></li>
+<li>into prebundle form with all holomorphemes advanced, since the example has only one holomorpheme and no change is needed at the beginning of the string</li>
+<li>into Skolem standard form, <code>(∀X)((¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))))</code></li>
+<li>omit the full measure, <code>(¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))</code>)</li>
+<li>Eliminate the cofetcher and represent the parent formula as a set of clauses, <code>¬P(x,f(x))∨Q(x,g(x)</code>, <code>¬P(x,f(x)∨¬R(x,g(x))</code></li>
+<li>Clause variable normalization, <code>¬P(x,f(x))∨Q(x,g(x)</code>, <code>¬P(y,f(y)∨¬R(y,g(y))</code></li>
+</ul>
+<p>From <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43249758/article/details/105835357">AI: Predicate Formulation as a Subset of Clauses</a></p>
+<h3 id="图搜索算法的一般过程？"><a href="#图搜索算法的一般过程？" class="headerlink" title="图搜索算法的一般过程？"></a>图搜索算法的一般过程？</h3><ul>
+<li>建立一个只含有起始节点<code>S</code>的搜索图<code>G</code>，把<code>S</code>放到一个<code>OPEN</code>表中</li>
+<li>初始化<code>CLOSED</code>表为空表</li>
+<li><code>LOOP</code>，若<code>OPEN</code>表为空表，则失败退出</li>
+<li>选择<code>OPEN</code>表上的第一个节点，把它从<code>OPEN</code>表中移出并放入到<code>CLOSED</code>表中，称此节点为节点<code>n</code></li>
+<li>若<code>n</code>为目标节点，则说明有解并成功退出</li>
+<li>扩展节点<code>n</code>，生成后继节点集合<code>M</code></li>
+<li>对于那些未曾在<code>G</code>中出现过的（既不在<code>OPEN</code>也不在<code>CLOSED</code>表中）<code>M</code>成员设置其父节点指针指向<code>n</code>并加入<code>OPEN</code>表，对已经在<code>OPEN</code>或<code>CLOSED</code>表中出现过的每一个<code>M</code>成员，确定是否需要将原来的父节点更改为<code>n</code>。对于已经在<code>CLOSED</code>表上的每个<code>M</code>成员，若修改了其父节点，则将该节点从<code>CLOSED</code>表中移出，重新加入到<code>OPEN</code>表中。</li>
+<li>按某一任意方式或按某个探试值，重排<code>OPEN</code>表</li>
+<li><code>GO LOOP</code></li>
+</ul>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png" alt="2022-05-24T05:09:08.png"></p>
+<p><strong>General procedure of graph search algorithm?</strong></p>
+<ul>
+<li>Create a search graph <code>G</code> containing only the starting node <code>S</code>, put <code>S</code> into an <code>OPEN</code> table</li>
+<li>Initialize the <code>CLOSED</code> table to be empty</li>
+<li><code>LOOP</code>, if the <code>OPEN</code> table is empty, then fail to exit</li>
+<li>Select the first node on the <code>OPEN</code> table, move it out of the <code>OPEN</code> table and put it into the <code>CLOSED</code> table, call this node node <code>n</code></li>
+<li>If <code>n</code> is the target node, then the solution is available and exit successfully</li>
+<li>Expand node <code>n</code> to generate the set of successor nodes <code>M</code></li>
+<li>For those <code>M</code> members that have not appeared in <code>G</code> (neither in the <code>OPEN</code> nor <code>CLOSED</code> tables) set their parent node pointer to <code>n</code> and add them to the <code>OPEN</code> table, and for each <code>M</code> member that has already appeared in the <code>OPEN</code> or <code>CLOSED</code> tables, determine whether the original parent node needs to be changed to <code>n</code>. For each <code>M</code> member already in the <code>CLOSED</code> table whose parent node is modified, remove the node from the <code>CLOSED</code> table and rejoin it in the <code>OPEN</code> table.</li>
+<li>Reorder the <code>OPEN</code> table in some arbitrary way or by some probing value</li>
+<li><code>GO LOOP</code></li>
+</ul>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png" alt="2022-05-24T05:09:08.png"></p>
+<h3 id="启发式搜索策略，如何定义？（了解）"><a href="#启发式搜索策略，如何定义？（了解）" class="headerlink" title="启发式搜索策略，如何定义？（了解）"></a>启发式搜索策略，如何定义？（了解）</h3><p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png" alt="2022-05-24T05:10:49.png"></p>
+<p>启发式搜索<code>informed search</code>是一条引导你进入最佳选择的规则，它决定了状态空间中一个状态的质量，引导你每次都选择质量最好（或较好）的状态，一步步走向最佳方案。通过一个估价函数来表示<code>f(n) = g(n) + h(n)</code>，其中<code>g(n)</code>表示从初始节点到当前节点所需的开销，<code>h(n)</code>表示从当前节点到目标节点还剩的差距。</p>
+<p><strong>Heuristic search strategy, how to define it? (Understand)</strong></p>
+<p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png" alt="2022-05-24T05:10:49.png"></p>
+<p>A heuristic search <code>informed search</code> is a rule that guides you to the best choice, which determines the quality of a state in the state space, guiding you to the best (or better) quality state each time, step by step towards the best solution. This is represented by an estimation function <code>f(n) = g(n) + h(n)</code>, where <code>g(n)</code> represents the overhead required to get from the initial node to the current node and <code>h(n)</code> represents the gap left from the current node to the target node.</p>
+<h3 id="A-算法？（了解）"><a href="#A-算法？（了解）" class="headerlink" title="A*算法？（了解）"></a>A*算法？（了解）</h3><p>A*算法，算法是一种静态路网中求解最短路径最有效的直接搜索方法，也是解决许多搜索问题的有效算法。算法中的距离估算值与实际值越接近，最终搜索速度越快。</p>
+<blockquote>
+<p>注意是最有效的直接搜索算法，之后涌现了很多预处理算法（如CH），在线查询效率是A*算法的数千甚至上万倍。</p>
+</blockquote>
+<p><em>公式表示为：</em> f*(n)=g*(n)+h*(n),</p>
+<ul>
+<li>f*(n)：从初始状态经由状态n到目标状态的最小代价估计，</li>
+<li>g*(n)：在状态空间中从初始状态到状态n的最小代价，</li>
+<li>h*(n)：从状态n到目标状态的路径的最小估计代价。</li>
+</ul>
+<p><em>真实h(n)的选取：</em></p>
+<p>保证找到最短路径（最优解的）条件，关键在于估价函数f(n)的选取（或者说h(n)的选取）。<br>以h(n)表达状态n到目标状态估计的距离，那么h(n)的选取大致有如下三种情况：</p>
+<ul>
+<li>如果h(n)&lt; h*(n)，这种情况下，搜索的点数多，搜索范围大，效率低。但能得到最优解。</li>
+<li>如果h(n)=h*(n)，此时的搜索效率是最高的。</li>
+<li>如果 h(n)&gt;h*(n)，搜索的点数少，搜索范围小，效率高，但不能保证得到最优解。</li>
+</ul>
+<p><strong>A-star algorithm? (Understanding)</strong></p>
+<p>The A* algorithm, algorithm is a direct search method for solving the shortest path in a static road network most efficiently, and an effective algorithm for solving many search problems. The closer the distance estimate in the algorithm is to the actual value, the faster the final search will be.</p>
+<blockquote>
+<p>Note that it is the most efficient direct search algorithm, and many preprocessing algorithms (such as CH) have emerged since then, which are thousands or even tens of thousands of times more efficient than the A* algorithm for online queries.</p>
+</blockquote>
+<p><em>The formula is expressed as:</em> f*(n) = g*(n) + h*(n),</p>
+<ul>
+<li>f*(n): the minimum cost estimate from the initial state via state n to the target state, the</li>
+<li>g*(n): the minimum cost from the initial state to state n in the state space, the</li>
+<li>h*(n): the minimum estimated cost of the path from state n to the target state.</li>
+</ul>
+<p><em>The selection of the true h(n):</em></p>
+<p>The key to guaranteeing the condition of finding the shortest path (of the optimal solution) is the selection of the estimation function f(n) (or the selection of h(n)).<br>Expressing the distance from state n to the target state estimate in terms of h(n), then there are roughly three cases for the selection of h(n) as follows.</p>
+<ul>
+<li>If h(n) &lt; h*(n), in this case, more points are searched, the search range is large, and the efficiency is low. But the optimal solution can be obtained.</li>
+<li>If h(n) = h*(n), the search efficiency is the highest at this time.</li>
+<li>If h(n)&gt;h*(n), the number of points searched is less, the search range is smaller, and the efficiency is high, but the optimal solution cannot be guaranteed.</li>
+</ul>
+<h3 id="人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）"><a href="#人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）" class="headerlink" title="人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）"></a>人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）</h3><p>人工神经网络由神经元模型构成，这种由许多神经元组成的信息处理网络具有并行分布结构。每个神经元具有单一输出，并且能够与其它神经元连接，存在许多输出连接方法，每种连接方法对应于一个连接权系数。基本结构是三层，输入层，隐层，输出层，各层由神经元和神经元之间的权值组成。基本结构分为以下两类：</p>
+<ul>
+<li>递归网络，多个神经元互连组成一个互连的神经网络</li>
+<li>前馈网络，同层神经元间不存在互连，从输入层至输出层的信号单向流通</li>
+</ul>
+<p><em>三种学习算法</em></p>
+<ul>
+<li>有师学习，能根据期望和实际网络输出之间的差来调整神经元间连接的强度或权值，期望（目标输出信号）由“导师”提供。</li>
+<li>无师学习，不需要知道期望输出，在训练过程中，只要向神经网络提供输入模式，神经网络就能自动地适应连接权值，以便按照相似特征把输入模式分组聚集。</li>
+<li>增强学习，其实是有师学习的特例，但是并不需要提供期望（目标输出），需要一个“导师”来评价与给定输入相对应的神经网络输出的优度。遗传算法正是增强学习的一个例子。</li>
+</ul>
+<p><strong>Basic structure of artificial neural network? Main learning algorithms of artificial neural networks? (Macro)</strong></p>
+<p>Artificial neural networks consist of a neuronal model, an information processing network composed of many neurons with a parallel distribution structure. Each neuron has a single output and can be connected to other neurons, and there are many output connection methods, each corresponding to a connection weight coefficient. The basic structure is three layers, <code>input layer</code>, <code>hidden layer</code>, and <code>output layer</code>, and each layer consists of <code>neurons and weights between neurons</code>. The basic structures are divided into two categories.</p>
+<ul>
+<li>Recurrent networks, where multiple neurons are interconnected to form an interconnected neural network</li>
+<li>feedforward networks, where there is no interconnection between neurons in the same layer and the signal flows unidirectionally from the input layer to the output layer</li>
+</ul>
+<p><em>Three learning algorithms</em></p>
+<ul>
+<li>Learning with a mentor, which adjusts the strength or weights of the connections between neurons based on the difference between the expectation and the actual network output, with the expectation (the target output signal) provided by the “mentor”.</li>
+<li>Masterless learning, which does not require knowledge of the desired output, simply provides the neural network with input patterns during training, and the neural network automatically adapts the connection weights so that the input patterns are grouped and aggregated according to similar characteristics.</li>
+<li>Augmented learning, in fact, is a special case of teacher learning, but does not require the provision of expectations (target outputs) and requires a “mentor” to evaluate the superiority of the output of the neural network with respect to the given inputs. Genetic algorithms are an example of augmented learning.</li>
+</ul>
+<h3 id="遗传算法的基本原理？求解过程？"><a href="#遗传算法的基本原理？求解过程？" class="headerlink" title="遗传算法的基本原理？求解过程？"></a>遗传算法的基本原理？求解过程？</h3><p>遗传算法是模仿生物遗传学和自然选择机理，通过人工方式构造的一类优化搜索算法，是对生物进化过程进行的一种数学仿真，是进化计算的一种最重要的形式。</p>
+<ul>
+<li>初始化：设置进化代数计数器<code>t=0</code>，设置最大进化代数<code>T</code>，随机生成<code>M</code>个个体作为初始群体<code>P(0)</code>。</li>
+<li>个体评价：计算群体<code>P(t)</code>中各个个体的适应度。</li>
+<li>选择运算:将选择算子作用于群体。选择的目的是把优化的个体直接遗传到下一代或通过配对交叉产生新的个体再遗传到下一代。选择操作是建立在群体中个体的适应度评估基础上的。</li>
+<li>交叉运算：将交叉算子作用于群体。遗传算法中起核心作用的就是交叉算子。</li>
+<li>变异运算：将变异算子作用于群体。即是对群体中的个体串的某些基因座上的基因值作变动。<br>群体<code>P(t)</code>经过选择、交叉、变异运算之后得到下一代群体<code>P(t+1)</code>。</li>
+<li>终止条件判断:若<code>t=T</code>,则以进化过程中所得到的具有最大适应度个体作为最优解输出，终止计算。</li>
+</ul>
+<p><strong>The basic principle of genetic algorithm? Solution process?</strong></p>
+<p>Genetic algorithm is a class of optimization search algorithm constructed artificially by imitating biological genetics and natural selection mechanism, which is a mathematical simulation of biological evolution process and one of the most important forms of evolutionary computation.</p>
+<ul>
+<li>Initialization: set the evolutionary algebra counter <code>t=0</code>, set the maximum evolutionary algebra <code>T</code>, and randomly generate <code>M</code> individuals as the initial population <code>P(0)</code>.</li>
+<li>Individual evaluation:Calculate the fitness of each individual in the population <code>P(t)</code>.</li>
+<li>Selection operation:The selection operator is applied to the population. The purpose of selection is to pass on optimized individuals directly to the next generation or to generate new individuals by pairwise crossover and then pass them on to the next generation. The selection operation is based on the fitness assessment of the individuals in the population.</li>
+<li>Crossover operation: the crossover operator is applied to the population. The crossover operator plays a central role in genetic algorithms.</li>
+<li>Variation operation: The variation operator is applied to the population. This means that the value of a gene in some locus of a string of individuals in the population is changed.<br>The population <code>P(t)</code> is selected, crossed and mutated to obtain the next generation population <code>P(t+1)</code>.</li>
+<li>Termination condition judgment: If <code>t=T</code>, then the individual with the maximum fitness obtained during the evolutionary process is output as the optimal solution and the calculation is terminated.</li>
+</ul>
+<h3 id="决策树的一般过程？最优属性选择划分的三种方法？"><a href="#决策树的一般过程？最优属性选择划分的三种方法？" class="headerlink" title="决策树的一般过程？最优属性选择划分的三种方法？"></a>决策树的一般过程？最优属性选择划分的三种方法？</h3><p>决策树由一系列节点和分支组成，在节点和子节点之间形成分支，节点代表决策或学习过程中所考虑的属性，不同属性形成不同分支。为了使用决策树对某一实例进行学习，做出决策，可以利用该实例的属性值由决策树的根节点向下搜索，直到叶节点为止，此叶节点即包含学习或决策结果。</p>
+<p>如何根据测试对象的属性来决定划分，决策树自上而下，其中每个节点都有一个属性被测试，测试结果用来划分对象集。反复进行这一过程直至某一子树中的集合与分类标准为同类为止，这个集合就是叶节点。决策树有<code>ID3</code>、<code>C4.5</code>、<code>CART</code>三种流行的特征选择的方法，其中<code>ID3</code>使用的标准是信息增益，<code>C4.5</code>使用的是信息增益比，<code>CART</code>使用的是基尼系数，三者中仅有<code>CART</code>树不仅可以做分类问题，还可以做回归问题。</p>
+<p><strong>The general process of decision tree? Three methods of optimal attribute selection division?</strong></p>
+<p>A decision tree consists of a series of nodes and branches that form branches between nodes and children, where the nodes represent attributes considered in the decision making or learning process, and different attributes form different branches. In order to use the decision tree to learn and make a decision about an instance, you can use the attribute values of the instance to search from the root node of the decision tree down to the leaf node, which contains the learning or decision results.</p>
+<p>How the division is decided based on the attributes of the tested objects, the decision tree is top-down, where each node has an attribute tested and the test result is used to divide the set of objects. This process is repeated until the set in a certain subtree is of the same kind as the classification criteria, and this set is the leaf node. There are three popular methods of feature selection, <code>ID3</code>, <code>C4.5</code> and <code>CART</code>, among which <code>ID3</code> uses the criterion of information gain, <code>C4.5</code> uses the information gain ratio and <code>CART</code> uses the Gini coefficient, among the three only the <code>CART</code> tree can do not only classification problems but also regression problems.</p>
+<h3 id="专家系统的组成部分？开发步骤？（基本不考）"><a href="#专家系统的组成部分？开发步骤？（基本不考）" class="headerlink" title="专家系统的组成部分？开发步骤？（基本不考）"></a>专家系统的组成部分？开发步骤？（基本不考）</h3><p><em>专家系统</em></p>
+<ul>
+<li>人机交互界面</li>
+<li>知识库</li>
+<li>数据库</li>
+<li>推理机</li>
+<li>解释器</li>
+<li>知识获取</li>
+</ul>
+<p><em>开发步骤</em></p>
+<ul>
+<li>知识工程师首先通过与专家进行对话获取专家知识。</li>
+<li>将知识编码至知识库中</li>
+<li>专家评估系统并返回意见给知识工程师</li>
+<li>循环直至系统性能为专家所满意。</li>
+</ul>
+<p><strong>Components of an expert system? Development steps? (basically not tested)</strong></p>
+<p><em>Expert System</em></p>
+<ul>
+<li>Human-computer interaction interface</li>
+<li>Knowledge base</li>
+<li>Database</li>
+<li>Reasoning machines</li>
+<li>Interpreter</li>
+<li>Knowledge Acquisition</li>
+</ul>
+<p><em>Development Steps</em></p>
+<ul>
+<li><p>The knowledge engineer first acquires expert knowledge by having a conversation with an expert.</p>
+</li>
+<li><p>Encode the knowledge into the knowledge base</p>
+</li>
+<li><p>The expert evaluates the system and returns comments to the knowledge engineer</p>
+</li>
+<li><p>Loop until the system performs to the expert’s satisfaction</p>
+</li>
+</ul>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/AI/">#AI</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/09/04/2022-9-4/">2022.9.4</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=630b7a7dabecf600135ed395&amp;product=inline-share-buttons' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: '4rh6eBEX06S0WVGKwyp0WHUL-gzGzoHsz',
+        appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
+        notify: true,
+        verify: true,
+        avatar: 'retro',
+        placeholder: 'ヾﾉ≧∀≦)ヾ',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: ''
+    })
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Joker&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
