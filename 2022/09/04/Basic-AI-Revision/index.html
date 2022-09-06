@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
 <meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
 <meta property="article:published_time" content="2022-09-04T01:49:59.000Z">
-<meta property="article:modified_time" content="2022-09-06T02:40:41.868Z">
+<meta property="article:modified_time" content="2022-09-06T02:48:27.900Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
@@ -473,7 +473,7 @@
 <li>若<code>n</code>为目标节点，则说明有解并成功退出</li>
 <li>扩展节点<code>n</code>，生成后继节点集合<code>M</code></li>
 <li>对于那些未曾在<code>G</code>中出现过的（既不在<code>OPEN</code>也不在<code>CLOSED</code>表中）<code>M</code>成员设置其父节点指针指向<code>n</code>并加入<code>OPEN</code>表，对已经在<code>OPEN</code>或<code>CLOSED</code>表中出现过的每一个<code>M</code>成员，确定是否需要将原来的父节点更改为<code>n</code>。对于已经在<code>CLOSED</code>表上的每个<code>M</code>成员，若修改了其父节点，则将该节点从<code>CLOSED</code>表中移出，重新加入到<code>OPEN</code>表中。</li>
-<li>按某一任意方式或按某个探试值，重排<code>OPEN</code>表</li>
+<li>按某一任意方式或按某个测试值，重排<code>OPEN</code>表</li>
 <li><code>GO LOOP</code></li>
 </ul>
 <p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png" alt="2022-05-24T05:09:08.png"></p>
@@ -486,7 +486,7 @@
 <li>If <code>n</code> is the target node, then the solution is available and exit successfully</li>
 <li>Expand node <code>n</code> to generate the set of successor nodes <code>M</code></li>
 <li>For those <code>M</code> members that have not appeared in <code>G</code> (neither in the <code>OPEN</code> nor <code>CLOSED</code> tables) set their parent node pointer to <code>n</code> and add them to the <code>OPEN</code> table, and for each <code>M</code> member that has already appeared in the <code>OPEN</code> or <code>CLOSED</code> tables, determine whether the original parent node needs to be changed to <code>n</code>. For each <code>M</code> member already in the <code>CLOSED</code> table whose parent node is modified, remove the node from the <code>CLOSED</code> table and rejoin it in the <code>OPEN</code> table.</li>
-<li>Reorder the <code>OPEN</code> table in some arbitrary way or by some probing value</li>
+<li>Reorder the <code>OPEN</code> table according to some arbitrary method or some test value</li>
 <li><code>GO LOOP</code></li>
 </ul>
 <p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png" alt="2022-05-24T05:09:08.png"></p>
