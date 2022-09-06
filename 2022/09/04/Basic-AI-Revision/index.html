@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
 <meta property="og:image" content="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png">
 <meta property="article:published_time" content="2022-09-04T01:49:59.000Z">
-<meta property="article:modified_time" content="2022-09-06T02:48:27.900Z">
+<meta property="article:modified_time" content="2022-09-06T04:17:00.735Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
                     <hr class="navbar-divider">
                     
                     
-                    <a class="navbar-item" href="#启发式搜索策略，如何定义？（了解）">11&nbsp;&nbsp;<b>启发式搜索策略，如何定义？（了解）</b></a>
+                    <a class="navbar-item" href="#启发式搜索如何定义？策略？启发函数？估价函数？（了解）">11&nbsp;&nbsp;<b>启发式搜索如何定义？策略？启发函数？估价函数？（了解）</b></a>
                     
                     
                     <hr class="navbar-divider">
@@ -255,7 +255,7 @@
         <span class="column is-narrow">
             
             
-            an hour read (About 7585 words)
+            an hour read (About 8261 words)
         </span>
         
     </div>
@@ -409,7 +409,7 @@
 <p><code>∧</code> with (parse), <code>∨</code> or (combine), <code>→</code> implication, <code>¬</code> negation</p>
 <p><em>Quantifiers</em></p>
 <p><code>∀</code> full quantifier for “all” or “every”<br><code>∃</code> existential quantifier, indicating “there is a certain” or “at least one”</p>
-<p><em>Jurisdiction of a quantifier</em></p>
+<p><em>Scope of a quantifier</em></p>
 <p>A single predicate located after the quantifier or a predicate formula enclosed in parentheses. Variants in the domain with the same name as in the quantifier are called bound variants, and variants with different names are called free variants.</p>
 <p><em>For example</em></p>
 <p><code>(∃X)(P(X,Y) → Q(X,Y)) ∨ R(X,Y)</code><br>Jurisdiction of <code>(∃X)</code>: <code>(P(X,Y) → Q(X,Y)) </code><br><code>X</code> in this jurisdiction is a bounded variant, while <code>X</code> in <code>R(X,Y)</code> is a free variant, as well as all <code>Y</code> in example.</p>
@@ -460,7 +460,7 @@
 <li>Eliminate the existence quantifier, <code>(∀X)(¬P(x,f(x))∨(Q(x,g(x))∧¬R(x,g(x))))</code></li>
 <li>into prebundle form with all holomorphemes advanced, since the example has only one holomorpheme and no change is needed at the beginning of the string</li>
 <li>into Skolem standard form, <code>(∀X)((¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))))</code></li>
-<li>omit the full measure, <code>(¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))</code>)</li>
+<li>omit the full quantifier, <code>(¬P(x,f(x))∨Q(x,g(x))∧(¬P(x,f(x)∨¬R(x,g(x))</code>)</li>
 <li>Eliminate the cofetcher and represent the parent formula as a set of clauses, <code>¬P(x,f(x))∨Q(x,g(x)</code>, <code>¬P(x,f(x)∨¬R(x,g(x))</code></li>
 <li>Clause variable normalization, <code>¬P(x,f(x))∨Q(x,g(x)</code>, <code>¬P(y,f(y)∨¬R(y,g(y))</code></li>
 </ul>
@@ -490,46 +490,81 @@
 <li><code>GO LOOP</code></li>
 </ul>
 <p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:09:08.png" alt="2022-05-24T05:09:08.png"></p>
-<h3 id="启发式搜索策略，如何定义？（了解）"><a href="#启发式搜索策略，如何定义？（了解）" class="headerlink" title="启发式搜索策略，如何定义？（了解）"></a>启发式搜索策略，如何定义？（了解）</h3><p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png" alt="2022-05-24T05:10:49.png"></p>
+<h3 id="启发式搜索如何定义？策略？启发函数？估价函数？（了解）"><a href="#启发式搜索如何定义？策略？启发函数？估价函数？（了解）" class="headerlink" title="启发式搜索如何定义？策略？启发函数？估价函数？（了解）"></a>启发式搜索如何定义？策略？启发函数？估价函数？（了解）</h3><p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png" alt="2022-05-24T05:10:49.png"></p>
+<p><em>如何定义？</em></p>
 <p>启发式搜索<code>informed search</code>是一条引导你进入最佳选择的规则，它决定了状态空间中一个状态的质量，引导你每次都选择质量最好（或较好）的状态，一步步走向最佳方案。通过一个估价函数来表示<code>f(n) = g(n) + h(n)</code>，其中<code>g(n)</code>表示从初始节点到当前节点所需的开销，<code>h(n)</code>表示从当前节点到目标节点还剩的差距。</p>
-<p><strong>Heuristic search strategy, how to define it? (Understand)</strong></p>
+<p><em>策略？</em></p>
+<p>有关具体问题领域的信息常常可以用来简化搜索。假设初始状态﹑算符和目标状态的定义都是完全确定的,然后决定一个搜索空间。<br>此问题关键在于如何有效地搜索这个给定空间。进行这种搜索的技术一般需要某些有关具体问题领域的特性的信息。已把此种信息叫做启发信息,并把利用启发信息的搜索方法叫做启发式搜索方法。</p>
+<p><em>启发函数？</em></p>
+<p>启发函数是一种函数用来估算当前state和目标state之间的距离，用于路径决策。在A*算法里：估价函数：f(n) = g(n) + h(n)。其中h(n)就是启发函数。</p>
+<p><em>估价函数？</em></p>
+<p>应用某些准则来重新排列每一步OPEN表中所有节点的顺序。然后，搜索就可能沿着某个被认为是最有希望的边缘区段向外扩展。估价函数的值越小，意味着该节点位于最优解路径上的“希望”越大，最后找到的最优路径即平均综合指标为最小的路径。</p>
+<p><strong>How is heuristic search defined? Strategy? Heuristic function? Valuation function? (Understand)</strong></p>
 <p><img src="https://cdn.fygod.xyz/blog/typecho/2022-05-24T05:10:49.png" alt="2022-05-24T05:10:49.png"></p>
-<p>A heuristic search <code>informed search</code> is a rule that guides you to the best choice, which determines the quality of a state in the state space, guiding you to the best (or better) quality state each time, step by step towards the best solution. This is represented by an estimation function <code>f(n) = g(n) + h(n)</code>, where <code>g(n)</code> represents the overhead required to get from the initial node to the current node and <code>h(n)</code> represents the gap left from the current node to the target node.</p>
-<h3 id="A-算法？（了解）"><a href="#A-算法？（了解）" class="headerlink" title="A*算法？（了解）"></a>A*算法？（了解）</h3><p>A*算法，算法是一种静态路网中求解最短路径最有效的直接搜索方法，也是解决许多搜索问题的有效算法。算法中的距离估算值与实际值越接近，最终搜索速度越快。</p>
+<p><em>How to define?</em></p>
+<p>A heuristic search <code>informed search</code> is a rule that guides you to the best choice, which determines the quality of a state in the state space and guides you to the best (or better) quality state each time, step by step towards the best solution. It is represented by an estimation function <code>f(n) = g(n) + h(n)</code>, where <code>g(n)</code> represents the overhead required to get from the initial node to the current node and <code>h(n)</code> represents the gap left from the current node to the target node.</p>
+<p><em>Strategy?</em></p>
+<p>Information about a specific problem domain can often be used to simplify the search. Assume that the initial state, operator and target state are completely defined, and then decide on a search space.<br>The key to the problem is how to efficiently search this given space. The technique of performing such a search generally requires some information about the properties of the specific problem domain. Such information is called heuristic information, and search methods that use heuristic information are called heuristic search methods.</p>
+<p><em>Heuristic functions?</em></p>
+<p>A heuristic function is a function used to estimate the distance between the current state and the target state for path decision. In the A* algorithm: estimation function: f(n) = g(n) + h(n). Where h(n) is the heuristic function.</p>
+<p><em>The valuation function?</em></p>
+<p>Some criterion is applied to rearrange the order of all nodes in the OPEN table at each step. The search may then be extended outward along some edge segment that is considered to be the most promising. The smaller the value of the valuation function, the more “promising” the node is on the optimal solution path, and the final optimal path found is the path with the smallest average composite index.</p>
+<h3 id="A-算法？（了解）"><a href="#A-算法？（了解）" class="headerlink" title="A*算法？（了解）"></a>A*算法？（了解）</h3><p>一个特别的估价函数f(n)，估算出从开始节点到n和节点n到目标节点的最小带权路径的代价之和</p>
 <blockquote>
-<p>注意是最有效的直接搜索算法，之后涌现了很多预处理算法（如CH），在线查询效率是A*算法的数千甚至上万倍。</p>
+<p>以下所提及的路径均为带权路径</p>
 </blockquote>
-<p><em>公式表示为：</em> f*(n)=g*(n)+h*(n),</p>
+<p><em>定义</em></p>
 <ul>
-<li>f*(n)：从初始状态经由状态n到目标状态的最小代价估计，</li>
-<li>g*(n)：在状态空间中从初始状态到状态n的最小代价，</li>
-<li>h*(n)：从状态n到目标状态的路径的最小估计代价。</li>
+<li>k(n,m)表示从节点n到m之间的最小路径的代价，m和n必须是连通的。</li>
+<li>h*(n)表示n到整个目标节点集合的所有中最小路径的一个，也就是说h*(n)是n到目标节点的最小代价</li>
+<li>g*(n)=k(S,n) 表示从开始节点到节点n的最小路径的代价</li>
+<li>f*(n)=g*(n)+h*(n) 表示从开始节点通过节点n到目标节点的最小路径的代价</li>
 </ul>
-<p><em>真实h(n)的选取：</em></p>
-<p>保证找到最短路径（最优解的）条件，关键在于估价函数f(n)的选取（或者说h(n)的选取）。<br>以h(n)表达状态n到目标状态估计的距离，那么h(n)的选取大致有如下三种情况：</p>
-<ul>
-<li>如果h(n)&lt; h*(n)，这种情况下，搜索的点数多，搜索范围大，效率低。但能得到最优解。</li>
-<li>如果h(n)=h*(n)，此时的搜索效率是最高的。</li>
-<li>如果 h(n)&gt;h*(n)，搜索的点数少，搜索范围小，效率高，但不能保证得到最优解。</li>
-</ul>
+<blockquote>
+<p>估价函数<code>f(n)=g(n)+h(n)</code>是<code>f*(n)</code>的一个估计。其中<code>h</code>是<code>h*</code>的估计，<code>g</code>是<code>g*</code>的估计，h依赖于启发的信息，我们称h为启发函数。</p>
+</blockquote>
+<p><em>步骤</em></p>
+<p>1）把S放入OPEN表中,记f=h,令CLOSED为空表.<br>2）若OPEN表为空,失败退出.<br>3）在OPEN表中选取有最小f值的节点为best,并将它放入CLOSED表.<br>4）若best节点是目标节点,则成功退出.<br>5）best节点不是目标节点,则把best节点扩展,产生后续节点children.<br>6）对于每个children进行如下的操作:</p>
+<ol>
+<li>建立值相父节点的指针</li>
+<li>计算g(children)=g(best)+g(best,children)</li>
+<li>如果children在OPEN表中,比较新旧路径,如果小于就把原来节点的父节点改为best并用新的代价取代原来的代价.</li>
+<li>如果节点在CLOSED表中,转向c</li>
+<li>如果节点即不在OPEN表中也不在CLOSED表中,则加入表OPEN中.<br>7）计算f值<br>8）GOTO 2</li>
+</ol>
 <p><strong>A-star algorithm? (Understanding)</strong></p>
-<p>The A* algorithm, algorithm is a direct search method for solving the shortest path in a static road network most efficiently, and an effective algorithm for solving many search problems. The closer the distance estimate in the algorithm is to the actual value, the faster the final search will be.</p>
+<p>A special valuation function, f(n), estimates the sum of the costs of the minimum weighted paths from the start node to n and from node n to the target node</p>
 <blockquote>
-<p>Note that it is the most efficient direct search algorithm, and many preprocessing algorithms (such as CH) have emerged since then, which are thousands or even tens of thousands of times more efficient than the A* algorithm for online queries.</p>
+<p>The paths mentioned below are all weighted paths</p>
 </blockquote>
-<p><em>The formula is expressed as:</em> f*(n) = g*(n) + h*(n),</p>
+<p><em>Define</em></p>
 <ul>
-<li>f*(n): the minimum cost estimate from the initial state via state n to the target state, the</li>
-<li>g*(n): the minimum cost from the initial state to state n in the state space, the</li>
-<li>h*(n): the minimum estimated cost of the path from state n to the target state.</li>
+<li>k(n,m) denotes the cost of the minimum path from node n to m. m and n must be connected.</li>
+<li>h*(n) denotes one of all the smallest paths from n to the whole set of target nodes, that is, h*(n) is the smallest cost from n to the target node</li>
+<li>g*(n)=k(S,n) denotes the cost of the smallest path from the start node to node n</li>
+<li>f*(n)=g*(n)+h*(n) denotes the cost of the minimum path from the start node to the target node through node n</li>
 </ul>
-<p><em>The selection of the true h(n):</em></p>
-<p>The key to guaranteeing the condition of finding the shortest path (of the optimal solution) is the selection of the estimation function f(n) (or the selection of h(n)).<br>Expressing the distance from state n to the target state estimate in terms of h(n), then there are roughly three cases for the selection of h(n) as follows.</p>
-<ul>
-<li>If h(n) &lt; h*(n), in this case, more points are searched, the search range is large, and the efficiency is low. But the optimal solution can be obtained.</li>
-<li>If h(n) = h*(n), the search efficiency is the highest at this time.</li>
-<li>If h(n)&gt;h*(n), the number of points searched is less, the search range is smaller, and the efficiency is high, but the optimal solution cannot be guaranteed.</li>
-</ul>
+<blockquote>
+<p>The valuation function <code>f(n)=g(n)+h(n)</code> is an estimate of <code>f*(n)</code>. where <code>h</code> is an estimate of <code>h*</code>, <code>g</code> is an estimate of <code>g*</code>, <code>h</code> depends on the inspired information, and we call <code>h</code> the inspired function.</p>
+</blockquote>
+<p><em>Step</em></p>
+<ol>
+<li>Put S into the OPEN table, note f=h, and let CLOSED be the empty table.<br>(2) If OPEN table is empty, fail to exit.<br>(3) in the OPEN table to select the node with the minimum f value of best, and put it into the CLOSED table.</li>
+<li>If the best node is the target node, then exit successfully.</li>
+<li>If the best node is not the target node, then extend the best node to produce subsequent children.</li>
+<li>For each child, perform the following operations:</li>
+</ol>
+<ol>
+<li>create a pointer to the value of the parent node</li>
+<li>calculate g(children)=g(best)+g(best,children)</li>
+<li>if children is in the OPEN table, compare the old and new paths, if it is smaller than the original node’s parent node to best and replace the original cost with the new cost.</li>
+<li>if the node is in the CLOSED table, turn to c</li>
+<li>if the node is not in the OPEN table nor in the CLOSED table, then add it to the OPEN table.</li>
+</ol>
+<ol start="7">
+<li>Calculate the value of f</li>
+<li>GOTO 2</li>
+</ol>
 <h3 id="人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）"><a href="#人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）" class="headerlink" title="人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）"></a>人工神经网络的基本结构？人工神经网络的主要学习算法？（宏观）</h3><p>人工神经网络由神经元模型构成，这种由许多神经元组成的信息处理网络具有并行分布结构。每个神经元具有单一输出，并且能够与其它神经元连接，存在许多输出连接方法，每种连接方法对应于一个连接权系数。基本结构是三层，输入层，隐层，输出层，各层由神经元和神经元之间的权值组成。基本结构分为以下两类：</p>
 <ul>
 <li>递归网络，多个神经元互连组成一个互连的神经网络</li>
