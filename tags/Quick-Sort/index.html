@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Leetcode Heap - DumbStack</title>
+<title>Tag: Quick Sort - DumbStack</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,21 +16,15 @@
 
 
 
-    <meta name="description" content="来源：Top K">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Heap">
-<meta property="og:url" content="http://example.com/2022/09/08/Leetcode%20Heap/index.html">
+    <meta name="description" content="Now I realize, it&#39;s a comedy.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DumbStack">
+<meta property="og:url" content="http://example.com/tags/Quick-Sort/index.html">
 <meta property="og:site_name" content="DumbStack">
-<meta property="og:description" content="来源：Top K">
+<meta property="og:description" content="Now I realize, it&#39;s a comedy.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/05/27/JwIoVYbi_wallhaven-0q6ll5.jpg">
-<meta property="article:published_time" content="2022-09-08T13:01:58.000Z">
-<meta property="article:modified_time" content="2022-09-09T09:48:56.349Z">
 <meta property="article:author" content="Joker">
-<meta property="article:tag" content="Heap">
-<meta property="article:tag" content="Complete Binary Tree">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/05/27/JwIoVYbi_wallhaven-0q6ll5.jpg">
 
 
 
@@ -110,38 +104,6 @@
             </a>
             
             
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
-                <a class="navbar-item" title="Table of Contents">
-                    <i class="fa fa-list"></i>
-                </a>
-                <div class="navbar-dropdown is-right">
-                    
-                    
-                    
-                    
-                    <a class="navbar-item" href="#完全二叉树">1&nbsp;&nbsp;<b>完全二叉树</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#最小的k个数">2&nbsp;&nbsp;<b>最小的k个数</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#Kth-Largest-Element-in-an-Array-215">3&nbsp;&nbsp;<b>Kth Largest Element in an Array (215)</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#Top-K-Frequent-Elements-347">4&nbsp;&nbsp;<b>Top K Frequent Elements (347)</b></a>
-                    
-                </div>
-            </div>
-            
             
             <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/dumb0stack/dumb0stack.github.io">
                 
@@ -154,12 +116,20 @@
     </div>
 </nav>
 
-    <section class="section">
+    <section class="section section-heading">
     <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
+        <div class="content">
+            <h5>#Quick Sort</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Leetcode Heap
+            <a href="/2022/09/08/Leetcode%20TOP%20K/" itemprop="url">Leetcode TOP K</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -178,99 +148,28 @@
         <span class="column is-narrow">
             
             
-            3 minutes read (About 517 words)
+            8 minutes read (About 1226 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/05/27/JwIoVYbi_wallhaven-0q6ll5.jpg"></p>
-<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/tag/heap-priority-queue/problemset/">Top K</a></p>
-<span id="more"></span>
-
-<p>许多应用程序都需要处理有序的元素，但不一定要求他们全部有序，或者不一定一次就将他们排序，很多时候，我们每次只需要操作数据中的最大元素（最小元素），有一种基于二叉堆的数据结构可以提供支持。</p>
-<p>所谓二叉堆，是一个<strong>完全二叉树</strong>，同时满足堆的性质：即子节点的键值或索引总是小于（或者大于）其父节点。</p>
-<p>堆排序正是抓住这一特点，每次都取堆顶元素，然后将剩余的元素重新调整到最大（最小）堆，依此类推，最终得到排序的序列。</p>
-<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p><strong>推论一：</strong>对于位置为$k$的节点，左子节点为$2\times{k}+1$，右子节点为$2\times{k}+2$</p>
-<p><strong>推论二：</strong>最后一个非叶节点的位置为$\frac{n}{2}-1$，$n$为数组长度</p>
-<h3 id="最小的k个数"><a href="#最小的k个数" class="headerlink" title="最小的k个数"></a>最小的k个数</h3><p>输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
-<figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [3,2,1], k = 2</span><br><span class="line">输出：[1,2] 或者 [2,1]</span><br></pre></td></tr></tbody></table></figure>
-
-<p>根据推论二，找到最后一个非叶子节点，将其和其叶子节点进行比较</p>
-<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Kth-Largest-Element-in-an-Array-215"><a href="#Kth-Largest-Element-in-an-Array-215" class="headerlink" title="Kth Largest Element in an Array (215)"></a>Kth Largest Element in an Array (215)</h3><p>Given an integer array nums and an integer k, return the kth largest element in the array.</p>
-<p>Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
-<p>You must solve it in O(n) time complexity.</p>
-<figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [3,2,1,5,6,4], k = 2</span><br><span class="line">Output: 5</span><br><span class="line"></span><br><span class="line">Input: nums = [3,2,3,1,2,4,5,5,6], k = 4</span><br><span class="line">Output: 4</span><br></pre></td></tr></tbody></table></figure>
-
-<p>找第K大的元素，</p>
-<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="title function_">findKthLargest</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> {</span><br><span class="line">        <span class="hljs-type">int</span> len=nums.length;</span><br><span class="line">        Pri</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="Top-K-Frequent-Elements-347"><a href="#Top-K-Frequent-Elements-347" class="headerlink" title="Top K Frequent Elements (347)"></a>Top K Frequent Elements (347)</h3><p>Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.</p>
-<figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,1,1,2,2,3], k = 2</span><br><span class="line">Output: [1,2]</span><br><span class="line">Input: nums = [1], k = 1</span><br><span class="line">Output: [1]</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Follow up: Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.</p>
-</body></html>
+<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/tag/heap-priority-queue/problemset/">Top K</a></p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/09/08/Leetcode%20TOP%20K/#more">Read More</a>
+        </p>
     
     </div>
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Heap/">#Heap</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Complete-Binary-Tree/">#Complete Binary Tree</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2022/09/07/MY%20IELTS%20ROADS/">MY IELTS ROADS</a>
-            
-        </span>
-    </div>
     
 </article>
 
 
-<div class="sharebox">
+
+
     
-<div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=630b7a7dabecf600135ed395&amp;product=inline-share-buttons' async='async'></script>
-
-</div>
-
-
-
-<div class="comments">
-    <h3 class="title is-4">Comments</h3>
     
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread',
-        appId: '4rh6eBEX06S0WVGKwyp0WHUL-gzGzoHsz',
-        appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
-        notify: true,
-        verify: true,
-        avatar: 'retro',
-        placeholder: 'ヾﾉ≧∀≦)ヾ',
-        meta: ['nick', 'mail'],
-        visitor: true,
-        lang: ''
-    })
-</script>
-
-
-</div>
-
     </div>
 </section>
     <footer class="footer">
