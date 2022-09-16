@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Leetcode Binary Tree - DumbStack</title>
+<title>HDFS Recap - DumbStack</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,22 +16,28 @@
 
 
 
-    <meta name="description" content="来源：Binary-Tree">
+    <meta name="description" content="来源：技术分享丨HDFS 入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Binary Tree">
-<meta property="og:url" content="http://example.com/2022/08/30/Leetcode%20Binary%20Tree/index.html">
+<meta property="og:title" content="HDFS Recap">
+<meta property="og:url" content="http://example.com/2022/09/16/HDFS-Recap/index.html">
 <meta property="og:site_name" content="DumbStack">
-<meta property="og:description" content="来源：Binary-Tree">
+<meta property="og:description" content="来源：技术分享丨HDFS 入门">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/07/23/1/1658534253/e46ZrVm1_GBq8nYkQ_wallhaven-9mxz8k-compressed.jpg">
-<meta property="og:image" content="https://cdn.fygod.xyz/blog/nest/47fff35dd3fd640ba60349c78b85242ae8f4b850f06a282cd7e92c91e6eff406-1.gif">
-<meta property="article:published_time" content="2022-08-30T07:34:26.000Z">
-<meta property="article:modified_time" content="2022-09-16T02:48:24.894Z">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/07/18/1/1658124572/7ZPY79ll_wallhaven-n62x7l-compressed.jpg">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663294527/cGuwBGIa_6b814eb4a3f0a91fad1a4d5c80f52fe4_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663294646/zcCCFDh4_9013f3007fdf70b2f8f4440b7a8c3651_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295537/Tu6pETr6_681968b6a79c44fa76dfb0d257ce3622_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295536/JLPdmLy6_228ca23d87b5e48e1e4a9ba96abef0f9_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295537/tzOhZQOd_554be0de2ab7c2543faa4eea17ed82db_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663296117/YtRL2Oh8_6f9faaca10c86e92724d49e607c93172_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663296117/cZQP1LNk_954f0eba3c758fb69066169702a3b688_720w.png">
+<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663299410/LOc09MmJ_Screenshot%202022-09-16%20113555.jpg">
+<meta property="article:published_time" content="2022-09-16T02:10:01.000Z">
+<meta property="article:modified_time" content="2022-09-16T03:56:53.715Z">
 <meta property="article:author" content="Joker">
-<meta property="article:tag" content="Auxiliary Stack">
-<meta property="article:tag" content="Binary Tree Traverse">
+<meta property="article:tag" content="HDFS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/07/23/1/1658534253/e46ZrVm1_GBq8nYkQ_wallhaven-9mxz8k-compressed.jpg">
+<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/07/18/1/1658124572/7ZPY79ll_wallhaven-n62x7l-compressed.jpg">
 
 
 
@@ -120,7 +126,39 @@
                     
                     
                     
-                    <a class="navbar-item" href="#二叉树的中序遍历-94">1&nbsp;&nbsp;<b>二叉树的中序遍历 (94)</b></a>
+                    <a class="navbar-item" href="#为什么需要分布式存储？">1&nbsp;&nbsp;<b>为什么需要分布式存储？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#HDFS-如何迎刃而解？">2&nbsp;&nbsp;<b>HDFS 如何迎刃而解？</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#文件完整性">2.1&nbsp;&nbsp;文件完整性</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#分片冗余，本地校验">2.2&nbsp;&nbsp;分片冗余，本地校验</a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#HDFS架构">3&nbsp;&nbsp;<b>HDFS架构</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#NN的作用">3.1&nbsp;&nbsp;NN的作用</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#SNN的作用">3.2&nbsp;&nbsp;SNN的作用</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#DN的作用">3.3&nbsp;&nbsp;DN的作用</a>
                     
                 </div>
             </div>
@@ -142,66 +180,99 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Leetcode Binary Tree
+            HDFS Recap
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-30T07:34:26.000Z" itemprop="datePublished">Aug 30 2022</time>
+                <time datetime="2022-09-16T02:10:01.000Z" itemprop="datePublished">Sep 16 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Solution/">Solution</a>
+            <a class="article-category-link" href="/categories/Summary/">Summary</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            a minute read (About 222 words)
+            10 minutes read (About 1545 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/07/23/1/1658534253/e46ZrVm1_GBq8nYkQ_wallhaven-9mxz8k-compressed.jpg"></p>
-<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/tag/binary-tree/problemset/">Binary-Tree</a></p>
+        <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/07/18/1/1658124572/7ZPY79ll_wallhaven-n62x7l-compressed.jpg"></p>
+<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21249592">技术分享丨HDFS 入门</a></p>
 <span id="more"></span>
 
-<h3 id="二叉树的中序遍历-94"><a href="#二叉树的中序遍历-94" class="headerlink" title="二叉树的中序遍历 (94)"></a>二叉树的中序遍历 (94)</h3><figure class="highlight txt hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,2,3]</span><br><span class="line">输出：[1,3,2]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="为什么需要分布式存储？"><a href="#为什么需要分布式存储？" class="headerlink" title="为什么需要分布式存储？"></a>为什么需要分布式存储？</h2><p>当数据集的大小超过一台独立物理计算机的存储能力时，就有必要对它进行分区并存储到若干台单独的计算机上。</p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663294527/cGuwBGIa_6b814eb4a3f0a91fad1a4d5c80f52fe4_720w.png" alt="经典文件存储结构分布化概念图"></p>
+<p>从概念图上看，分布化的文件系统会因为分布后的结构不完整，导致系统复杂度加大，并且引入的网络编程，同样导致分布式文件系统更加复杂。</p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663294646/zcCCFDh4_9013f3007fdf70b2f8f4440b7a8c3651_720w.png" alt="可能存在的问题"></p>
+<p><strong>对于以上的问题我们来HDFS是如何迎刃而解的</strong></p>
+<h2 id="HDFS-如何迎刃而解？"><a href="#HDFS-如何迎刃而解？" class="headerlink" title="HDFS 如何迎刃而解？"></a>HDFS 如何迎刃而解？</h2><blockquote class="colorquote info"><p>HDFS以流处理访问模式来存储文件的。</p>
+</blockquote>
 
-<p><strong>递归</strong></p>
-<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Integer&gt; <span class="title function_">inorderTraversal</span><span class="hljs-params">(TreeNode root)</span> {</span><br><span class="line">    List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">    inorder(root, res);</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="title function_">inorder</span><span class="hljs-params">(TreeNode root, List&lt;Integer&gt; res)</span> {</span><br><span class="line">    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) {</span><br><span class="line">        <span class="hljs-keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    inorder(root.left, res);</span><br><span class="line">    res.add(root.val);</span><br><span class="line">    inorder(root.right, res);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>非递归：迭代</strong></p>
-<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="title class_">TreeNode</span> {</span><br><span class="line">    <span class="hljs-type">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode() {</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="hljs-type">int</span> val) {</span><br><span class="line">        <span class="hljs-built_in">this</span>.val = val;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="hljs-type">int</span> val, TreeNode left, TreeNode right) {</span><br><span class="line">        <span class="hljs-built_in">this</span>.val = val;</span><br><span class="line">        <span class="hljs-built_in">this</span>.left = left;</span><br><span class="line">        <span class="hljs-built_in">this</span>.right = right;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Integer&gt; <span class="title function_">inorderTraversal</span><span class="hljs-params">(TreeNode root)</span> {</span><br><span class="line">        List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">        Deque&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="title class_">LinkedList</span>&lt;TreeNode&gt;();</span><br><span class="line">        <span class="hljs-keyword">while</span> (root != <span class="hljs-literal">null</span> || !stack.isEmpty()) {</span><br><span class="line">            <span class="hljs-keyword">while</span> (root != <span class="hljs-literal">null</span>) {</span><br><span class="line">                stack.push(root);</span><br><span class="line">                root = root.left;</span><br><span class="line">            }</span><br><span class="line">            root = stack.pop();</span><br><span class="line">            res.add(root.val);</span><br><span class="line">            root = root.right;</span><br><span class="line">        }</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="title function_">main</span><span class="hljs-params">(String[] args)</span> {</span><br><span class="line">        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">TreeNode</span>(<span class="hljs-number">1</span>);</span><br><span class="line">        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">TreeNode</span>(<span class="hljs-number">2</span>);</span><br><span class="line">        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="title class_">TreeNode</span>(<span class="hljs-number">3</span>);</span><br><span class="line">        root.right = n1;</span><br><span class="line">        n1.left = n2;</span><br><span class="line">        List&lt;Integer&gt; rs = inorderTraversal(root);</span><br><span class="line">        System.out.println(rs);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://cdn.fygod.xyz/blog/nest/47fff35dd3fd640ba60349c78b85242ae8f4b850f06a282cd7e92c91e6eff406-1.gif"></p>
+<p>一次写入，多次读取。数据源通常由源生成或从数据源直接复制而来，接着长时间在此数据集上进行各类分析，大数据不需要搬来搬去。</p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295537/Tu6pETr6_681968b6a79c44fa76dfb0d257ce3622_720w.png"></p>
+<h3 id="文件完整性"><a href="#文件完整性" class="headerlink" title="文件完整性"></a>文件完整性</h3><p>DFS是用流处理方式处理文件，每个文件在系统里都能找到它的本地化映像，所以对于用户来说，别管文件是什么格式的，也不用在意被分到哪里，只管从DFS里取出就可以了。</p>
+<p>一般来说，文件处理过程中无法保证文件安全顺利到达，传统文件系统是使用本地校验方式保证数据完整，文件被散后，难道需要特意安排每个分片文件的校验码？</p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295536/JLPdmLy6_228ca23d87b5e48e1e4a9ba96abef0f9_720w.png"></p>
+<p>分片数量和大小是不确定的，海量的数据本来就需要海量的校验过程，分片后加入每个分片的跟踪校验完全是在数满天恒星的同时数了他们的行星。</p>
+<h3 id="分片冗余，本地校验"><a href="#分片冗余，本地校验" class="headerlink" title="分片冗余，本地校验"></a>分片冗余，本地校验</h3><p><strong>HDFS的解决方案：分片冗余，本地校验。</strong></p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663295537/tzOhZQOd_554be0de2ab7c2543faa4eea17ed82db_720w.png"></p>
+<p>直观上看，我们是给文件系统添堵，文件越来越多，实际上，DFS更加喜欢这样的架构。<strong>数据冗余式存储，直接将多份的分片文件交给分片后的存储服务器去校验。</strong></p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663296117/YtRL2Oh8_6f9faaca10c86e92724d49e607c93172_720w.png"></p>
+<p>冗余后的分片文件还有个额外功能，<strong>只要冗余的分片文件中有一份是完整的，经过多次协同调整后，其他分片文件也将完整。</strong></p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663296117/cZQP1LNk_954f0eba3c758fb69066169702a3b688_720w.png"></p>
+<p>经过协调校验，无论是传输错误，I/O错误，还是个别服务器宕机，整个系统里的文件是完整的。</p>
+<p>分布后的文件系统有个无法回避的问题，<strong>因为文件不在一个磁盘导致读取访问操作的延时，这个是HDFS现在遇到的主要问题。</strong></p>
+<p>现阶段，HDFS的配置是按照高数据吞吐量优化的，可能会以高时间延时为代价。但万幸的是，HDFS是具有很高弹性，可以针对具体应用再优化。</p>
+<h2 id="HDFS架构"><a href="#HDFS架构" class="headerlink" title="HDFS架构"></a>HDFS架构</h2><h3 id="NN的作用"><a href="#NN的作用" class="headerlink" title="NN的作用"></a>NN的作用</h3><p>接受客户端读写，存元数据信息（文件谁所有，权限，用户对文件的操作信息(EditLog)，文件被分成几块(Block ID)，块存在哪些DataNode）</p>
+<p><strong>元数据主要保存在FsImgae和EditLog中</strong></p>
+<ul>
+<li>FsImgae：NameNode启动时对整个文件系统的快照</li>
+<li>EditLog：NameNode启动后对整个文件系统的操作日志</li>
+</ul>
+<p>FsImgae保存的是最开始时的快照，而EditLog记录的是启动后的每一步操作命令，所以FsImgae+EditLog就是最终操作结果。只有NameNodde重启时，EditLog才会合并到FsImgae中，从而得到一个newest snapshot；但是在产品集群中，NameNode很少重启，这意味着随着NameNode运行时间的加长，EditLog文件越来越大；因此我们需要一个管理机制来减小EditLog文件大小和得到一个新的FsImgae文件，这与Windows的恢复机制相似，SecondaryNameNode引入。</p>
+<h3 id="SNN的作用"><a href="#SNN的作用" class="headerlink" title="SNN的作用"></a>SNN的作用</h3><p>SecondaryNameNode主要的任务是合并NameNode的FsImgae和EditLog，<strong>减少NameNode的启动时间。</strong></p>
+<ol>
+<li>SNN定期和NN通信，请求其停止使用EditLog，暂时将新的写操作写到一个新的文件edit.new上，瞬间完成。</li>
+<li>SNN通过HTTP GET方式从NN上获取到FsImgae和EditLog文件，并下载到本地相应目录下</li>
+<li>SNN将下载来的FsImage载入到内存，然后一条一条地执行EditLog文件中的各项更新操作，使得内存中的FsImage保持最新（合并）</li>
+<li>SNN执行完操作3之后，会通过post方式将新的FsImage文件发送到NN节点上</li>
+<li>NN将SNN接收到的新的FsImage替换旧的FsImage，同时将edit.new替换EditLog文件</li>
+</ol>
+<p><strong>以上过程使得EditLog变小</strong></p>
+<p><img src="https://cdn.fygod.xyz/uploads/2022/09/16/1/1663299410/LOc09MmJ_Screenshot%202022-09-16%20113555.jpg"></p>
+<p><strong>合并时机：</strong>时间间隔fs.checkpoint.period.period，edit大小s.checkpoint.size，edit超过该大小则需合并。</p>
+<h3 id="DN的作用"><a href="#DN的作用" class="headerlink" title="DN的作用"></a>DN的作用</h3><ul>
+<li>存储数据</li>
+<li>启动DN线程时会向NN汇报block信息，之后NN根据汇报的block信息来找到block数据</li>
+<li>通过向NN发送heartbeat保持与其联系（3s），如果NN 10分钟没有收到DN的heartbeat，则认为其已经lost，NN就会向DN发消息，告诉其副本不够，并copy其上的block到其它DN中。</li>
+</ul>
 </body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Auxiliary-Stack/">#Auxiliary Stack</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Binary-Tree-Traverse/">#Binary Tree Traverse</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/HDFS/">#HDFS</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/2022/08/30/Basic%20Concepts/">Basic Concepts</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2022/08/30/Designed-to-Last-10-of-the-world-s-most-ingenious-building/">Designed to Last: 10 of the world&#39;s most ingenious building</a>
+            <a href="/2022/09/08/Leetcode%20TOP%20K/">Leetcode TOP K</a>
             
         </span>
     </div>
