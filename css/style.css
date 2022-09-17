@@ -432,6 +432,16 @@ figure.highlight {
     height: 100%;
     position: absolute; }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px; }
+
+::-webkit-scrollbar-thumb {
+  background: #718096; }
+
+::-webkit-scrollbar-track {
+  background: #cbd5e0; }
+
 .ins-section-container {
   position: relative;
   background: #f7f7f7; }
