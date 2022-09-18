@@ -200,7 +200,7 @@
 </blockquote>
 
 
-    <div id="aplayer-berKCHfp" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="7614328211" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"></div></body></html>
+    <div id="aplayer-QMKeTBcg" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="7614328211" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"></div></body></html>
     
     </div>
     
@@ -219,25 +219,20 @@
 
 <div class="comments">
     <h3 class="title is-4">Comments</h3>
-    
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread',
-        appId: '4rh6eBEX06S0WVGKwyp0WHUL-gzGzoHsz',
-        appKey: 'naVqOrvrDzfBBLan1ty1BtNe',
-        notify: true,
-        verify: true,
-        avatar: 'retro',
-        placeholder: 'ヾﾉ≧∀≦)ヾ',
-        meta: ['nick', 'mail'],
-        visitor: true,
-        lang: ''
-    })
+    <link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+<script type="text/javascript">
+    new Gitalk({
+        clientID: '6ec52a71a24097b9b4a3',
+        clientSecret: '14194563606614ca2169c9161b6ce5a6b7110746',
+        repo: 'dumb0stack.github.io',
+        owner: 'dumb0stack',
+        admin: 'dumb0stack',
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    }).render('gitalk-container')
 </script>
-
 
 </div>
 
