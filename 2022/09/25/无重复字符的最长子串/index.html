@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>雅思之路 - DumbStack</title>
+<title>无重复字符的最长子串 - DumbStack</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,18 +16,19 @@
 
 
 
-    <meta property="og:type" content="article">
-<meta property="og:title" content="雅思之路">
-<meta property="og:url" content="http://example.com/2022/09/19/%E9%9B%85%E6%80%9D%E4%B9%8B%E8%B7%AF/index.html">
+    <meta name="description" content="给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。 1234567输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。  来源：力扣-3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无重复字符的最长子串">
+<meta property="og:url" content="http://example.com/2022/09/25/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/index.html">
 <meta property="og:site_name" content="DumbStack">
+<meta property="og:description" content="给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。 1234567输入: s &#x3D; &quot;abcabcbb&quot;输出: 3 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。输入: s &#x3D; &quot;bbbbb&quot;输出: 1解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。  来源：力扣-3">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg">
-<meta property="article:published_time" content="2022-09-19T00:53:54.000Z">
-<meta property="article:modified_time" content="2022-09-25T02:57:45.566Z">
+<meta property="article:published_time" content="2022-09-25T07:36:44.000Z">
+<meta property="article:modified_time" content="2022-09-25T10:20:33.096Z">
 <meta property="article:author" content="Joker">
-<meta property="article:tag" content="English">
+<meta property="article:tag" content="Sliding Window">
+<meta property="article:tag" content="Hash Map">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg">
 
 
 
@@ -118,19 +119,21 @@
                     
                     
                     
-                    <a class="navbar-item" href="#Vocabulary">1&nbsp;&nbsp;<b>Vocabulary</b></a>
+                    <a class="navbar-item" href="#滑动窗口-Sliding-Window">1&nbsp;&nbsp;<b>滑动窗口(Sliding Window)</b></a>
                     
                     
                     <hr class="navbar-divider">
                     
                     
-                    <a class="navbar-item" href="#Writing-Part-2">2&nbsp;&nbsp;<b>Writing Part 2</b></a>
+                    <a class="navbar-item" href="#如何判断字串里是否有重复的字符">2&nbsp;&nbsp;<b>如何判断字串里是否有重复的字符</b></a>
                     
                     
-                    <hr class="navbar-divider">
+                    
+                    <a class="navbar-item" href="#数组">2.1&nbsp;&nbsp;数组</a>
                     
                     
-                    <a class="navbar-item" href="#Reference">3&nbsp;&nbsp;<b>Reference</b></a>
+                    
+                    <a class="navbar-item" href="#Hash-Map">2.2&nbsp;&nbsp;Hash Map</a>
                     
                 </div>
             </div>
@@ -152,292 +155,92 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            雅思之路
+            无重复字符的最长子串
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-19T00:53:54.000Z" itemprop="datePublished">Sep 19 2022</time>
+                <time datetime="2022-09-25T07:36:44.000Z" itemprop="datePublished">Sep 25 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E7%AC%94%E8%80%95%E4%B8%8D%E8%BE%8D/">笔耕不辍</a>
+            <a class="article-category-link" href="/categories/%E5%8B%A4%E8%83%BD%E8%A1%A5%E6%8B%99/">勤能补拙</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 minutes read (About 601 words)
+            4 minutes read (About 625 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p><img src="https://cdn.fygod.xyz/uploads/2022/08/29/1/1661782068/m9YKJWff_wallhaven-l315vy-compressed.jpg"></p>
+        <html><head></head><body><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: s = "abcabcbb"</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。</span><br><span class="line"></span><br><span class="line">输入: s = "bbbbb"</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>来源：</strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters">力扣-3</a></p>
 <span id="more"></span>
 
-<h3 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h3><p><strong>New words</strong></p>
-<table>
-<thead>
-<tr>
-<th>en</th>
-<th>zh-cn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>cogent</strong></td>
-<td>有说服力的</td>
-</tr>
-<tr>
-<td><strong>portfolio</strong></td>
-<td>公文包，投资方案</td>
-</tr>
-<tr>
-<td><strong>collude</strong></td>
-<td>共谋，串通，勾结</td>
-</tr>
-<tr>
-<td><strong>scam</strong></td>
-<td>阴谋</td>
-</tr>
-<tr>
-<td>conviction</td>
-<td>确信</td>
-</tr>
-<tr>
-<td>determination</td>
-<td>决心</td>
-</tr>
-<tr>
-<td>cultivate</td>
-<td>耕作，种植</td>
-</tr>
-<tr>
-<td>sophisticated</td>
-<td>老练的，尖端的，有教养的</td>
-</tr>
-<tr>
-<td>veteran</td>
-<td>老手，老练的</td>
-</tr>
-<tr>
-<td>veterinarian</td>
-<td>兽医</td>
-</tr>
-<tr>
-<td><strong>spores</strong></td>
-<td>孢子</td>
-</tr>
-<tr>
-<td><strong>infiltrate</strong></td>
-<td>渗透，渗入人的心中</td>
-</tr>
-<tr>
-<td>penetrate</td>
-<td>渗透，透过</td>
-</tr>
-<tr>
-<td>permeate</td>
-<td>渗透，弥散，传播</td>
-</tr>
-<tr>
-<td>constrain</td>
-<td>强迫，约束</td>
-</tr>
-<tr>
-<td>compel</td>
-<td>在法律，权利等驱使下被迫而为</td>
-</tr>
-<tr>
-<td>oblige</td>
-<td>出于生理上道德上需要，促使某人做某事</td>
-</tr>
-<tr>
-<td>impose</td>
-<td>强迫</td>
-</tr>
-<tr>
-<td>compulsory</td>
-<td>强制的</td>
-</tr>
-<tr>
-<td>mandatory</td>
-<td>强制的</td>
-</tr>
-<tr>
-<td>faint</td>
-<td>昏厥，微弱的</td>
-</tr>
-<tr>
-<td>dizzy</td>
-<td>头晕的</td>
-</tr>
-<tr>
-<td>bewildered</td>
-<td>困惑的</td>
-</tr>
-<tr>
-<td>dazzling</td>
-<td>头晕目眩的</td>
-</tr>
-<tr>
-<td>consent</td>
-<td>同意</td>
-</tr>
-<tr>
-<td>consistent</td>
-<td>一致</td>
-</tr>
-<tr>
-<td>uniform</td>
-<td>制服，一致</td>
-</tr>
-<tr>
-<td>halt</td>
-<td>停止</td>
-</tr>
-<tr>
-<td>cease</td>
-<td>终结</td>
-</tr>
-<tr>
-<td>paramount</td>
-<td>至高无上的</td>
-</tr>
-<tr>
-<td>facility</td>
-<td>设备，容易</td>
-</tr>
-<tr>
-<td>abbey</td>
-<td>修道院，大教堂</td>
-</tr>
-<tr>
-<td>legislation</td>
-<td>法规</td>
-</tr>
-<tr>
-<td>outlaw</td>
-<td>非法的</td>
-</tr>
-<tr>
-<td>discrimination</td>
-<td>歧视</td>
-</tr>
-<tr>
-<td>segregation</td>
-<td>隔离并区别对待</td>
-</tr>
-<tr>
-<td>disorder</td>
-<td>障碍</td>
-</tr>
-<tr>
-<td>imperative</td>
-<td>迫切的</td>
-</tr>
-<tr>
-<td>diplomatic</td>
-<td>外交的</td>
-</tr>
-<tr>
-<td>prevalence</td>
-<td>流行</td>
-</tr>
-<tr>
-<td>confiscate</td>
-<td>没收</td>
-</tr>
-<tr>
-<td>marvelous</td>
-<td>了不起的</td>
-</tr>
-<tr>
-<td>periodical</td>
-<td>期刊</td>
-</tr>
-</tbody></table>
-<p><strong>Synonymous</strong></p>
-<table>
-<thead>
-<tr>
-<th>en</th>
-<th>zh-cn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>working week/professional schedule</td>
-<td>工作日程</td>
-</tr>
-<tr>
-<td>developed countries/industrialized countries</td>
-<td>发达国家</td>
-</tr>
-<tr>
-<td>serious problems/severe(critical) issues/major concern</td>
-<td>严重问题</td>
-</tr>
-<tr>
-<td>advantages and disadvantages/pros and cons</td>
-<td>优点和缺点</td>
-</tr>
-<tr>
-<td>appear to/seem to</td>
-<td>似乎是</td>
-</tr>
-</tbody></table>
-<h3 id="Writing-Part-2"><a href="#Writing-Part-2" class="headerlink" title="Writing Part 2"></a>Writing Part 2</h3><p><strong>Sentence restructuring</strong></p>
-<table>
-<thead>
-<tr>
-<th>origin</th>
-<th>transformation</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Unemployment is one of the most serious problems facing developed nations today.</td>
-<td>It seems increasingly normal for people of industrialized countries to confront umemployment, one of their toughest problems./Lack of jobs is indeed a major concern among many industrialized countries.</td>
-</tr>
-<tr>
-<td>Some argue that a 35-hour working week is a possible solution to unemployment. What are the advantages and disadvantages of this solution?</td>
-<td>In this essay, I will outline the pros and cons of lessening professional schedules to thirty five hours.</td>
-</tr>
-</tbody></table>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G44y187UG/?spm_id_from=333.788.recommend_more_video.12&amp;vd_source=d6b7becea2923ce7ca2387ed93567b2e">雅思作文,25个万能逻辑链,搞定100个高频题,你能看懂吗？</a><br><a target="_blank" rel="noopener" href="https://ishare.iask.sina.com.cn/f/34pLdMoVfYc.html">63个高分句式</a><br><a target="_blank" rel="noopener" href="https://liuxue.koolearn.com/ielts/write-3-0-0/">真题练习</a><br><a target="_blank" rel="noopener" href="https://www.qinxue365.com/yyxx/ieltszx/524604.html">雅思作文想不出来怎么办</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RV4y1E7H7?p=11&amp;vd_source=d6b7becea2923ce7ca2387ed93567b2e">Simon全套雅思写作教程</a></p>
+<h2 id="滑动窗口-Sliding-Window"><a href="#滑动窗口-Sliding-Window" class="headerlink" title="滑动窗口(Sliding Window)"></a>滑动窗口(Sliding Window)</h2><p><strong>关键词：</strong></p>
+<ul>
+<li>满足XXX条件（计算结果，出现次数，同时包含）</li>
+<li>最长/最短</li>
+<li>子串/子数组/子序列（长度最小的子序列）</li>
+</ul>
+<p><strong>寻找最长</strong></p>
+<ol>
+<li>初始化左右指针L，R在起始点，R向右逐位滑动</li>
+<li>每次滑动过程中：如果窗内元素满足条件，R向右扩大窗口，并更新最优结果；如果窗内元素不满足条件，L向右缩小窗口</li>
+<li>R到达结尾</li>
+</ol>
+<p><strong>寻找最短</strong></p>
+<ol>
+<li>初始化左右指针L，R在起始点，R向右逐位滑动</li>
+<li>每次滑动过程中：如果窗内元素满足条件，L向右缩小窗口，并更新最优结果；如果窗内元素不满足条件，R向右扩大窗口</li>
+<li>R到达结尾</li>
+</ol>
+<h2 id="如何判断字串里是否有重复的字符"><a href="#如何判断字串里是否有重复的字符" class="headerlink" title="如何判断字串里是否有重复的字符"></a>如何判断字串里是否有重复的字符</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>当右指针向右移动将字符纳入滑动窗口的时候，字符的频数加 1；</li>
+<li>当左指针向右移动将字符移出滑动窗口的时候，字符的频数减 1。</li>
+</ul>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> {</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> s.length();</span><br><span class="line">    <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">2</span>) {</span><br><span class="line">        <span class="hljs-keyword">return</span> len;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="hljs-type">int</span>[] freq = <span class="hljs-keyword">new</span> <span class="title class_">int</span>[<span class="hljs-number">128</span>];</span><br><span class="line">    <span class="hljs-comment">//转化为字符数组，避免每一次s.charAt()检查下标越界</span></span><br><span class="line">    <span class="hljs-type">char</span>[] charArray = s.toCharArray();</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (right &lt; len) {</span><br><span class="line">        freq[charArray[right]]++;</span><br><span class="line">        <span class="hljs-keyword">while</span> (freq[charArray[right]] == <span class="hljs-number">2</span>) {</span><br><span class="line">            freq[charArray[left]]--;</span><br><span class="line">            left++;</span><br><span class="line">        }</span><br><span class="line">        res = Math.max(res, right - left + <span class="hljs-number">1</span>);</span><br><span class="line">        right++;</span><br><span class="line">    }</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-        <div id="aplayer-aaZqmJpp" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+<h3 id="Hash-Map"><a href="#Hash-Map" class="headerlink" title="Hash Map"></a>Hash Map</h3><p>定义一个map存储&lt;k,v&gt;，其中k为字符，v为字符位置+1（+1表示从字符位置后一位才开始不重复）。</p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> {</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> s.length();</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">    Map&lt;Character, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, start = <span class="hljs-number">0</span>; end &lt; len; end++) {</span><br><span class="line">        <span class="hljs-type">char</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> s.charAt(end);</span><br><span class="line">        <span class="hljs-keyword">if</span> (map.containsKey(value)) {</span><br><span class="line">            start = Math.max(map.get(value), start);</span><br><span class="line">        }</span><br><span class="line">        res = Math.max(res, end - start + <span class="hljs-number">1</span>);</span><br><span class="line">        map.put(s.charAt(end), end + <span class="hljs-number">1</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+        <div id="aplayer-QeEsnJZc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
 			  <script>
-				  var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","mutex":true,"theme":"linear-gradient(135deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%)","preload":"metadata","listmaxheight":"513px","music":[{"title":"スパークル","author":"RADWIMPS","url":"https://cdn.fygod.xyz/uploads/2022/09/20/1/1663661491/rm7BsWHz_%E3%82%B9%E3%83%91%E3%83%BC%E3%82%AF%E3%83%AB%20%28movie%20ver.%29-RADWIMPS.mp3","pic":"https://cdn.fygod.xyz/uploads/2022/09/20/1/1663661484/aGk0yPw4_18597139672292692.jpg","lrc":"https://cdn.fygod.xyz/uploads/2022/09/20/1/1663661507/S1cBUVM2_%E3%82%B9%E3%83%91%E3%83%BC%E3%82%AF%E3%83%AB%20%28movie%20ver.%29-RADWIMPS.lrc"}]};
-				  options.element = document.getElementById("aplayer-aaZqmJpp");
+				  var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","mutex":true,"theme":"linear-gradient(135deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%)","preload":"metadata","listmaxheight":"513px","music":[{"title":"Gasshow","author":"illion","url":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101096/ZVbno5z8_233194916.mp3","pic":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101099/vrMWfKcI_yojiro.jpg","lrc":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101095/zMMJszbp_Gasshow-MusicEnc.lrc"}]};
+				  options.element = document.getElementById("aplayer-QeEsnJZc");
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
-			  </script>
-
-</body></html>
+			  </script></body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/English/">#English</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Sliding-Window/">#Sliding Window</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Hash-Map/">#Hash Map</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/2022/09/25/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">无重复字符的最长子串</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2022/09/18/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">快速排序</a>
+            <a href="/2022/09/19/%E9%9B%85%E6%80%9D%E4%B9%8B%E8%B7%AF/">雅思之路</a>
             
         </span>
     </div>
