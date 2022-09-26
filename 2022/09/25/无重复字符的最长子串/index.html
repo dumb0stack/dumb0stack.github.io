@@ -214,10 +214,10 @@
 <figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> {</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> s.length();</span><br><span class="line">    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;</span><br><span class="line">    Map&lt;Character, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, start = <span class="hljs-number">0</span>; end &lt; len; end++) {</span><br><span class="line">        <span class="hljs-type">char</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> s.charAt(end);</span><br><span class="line">        <span class="hljs-keyword">if</span> (map.containsKey(value)) {</span><br><span class="line">            start = Math.max(map.get(value), start);</span><br><span class="line">        }</span><br><span class="line">        res = Math.max(res, end - start + <span class="hljs-number">1</span>);</span><br><span class="line">        map.put(s.charAt(end), end + <span class="hljs-number">1</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="hljs-keyword">return</span> res;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
-        <div id="aplayer-QeEsnJZc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+        <div id="aplayer-JYCzspYt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
 			  <script>
 				  var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","mutex":true,"theme":"linear-gradient(135deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%)","preload":"metadata","listmaxheight":"513px","music":[{"title":"Gasshow","author":"illion","url":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101096/ZVbno5z8_233194916.mp3","pic":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101099/vrMWfKcI_yojiro.jpg","lrc":"https://cdn.fygod.xyz/uploads/2022/09/25/1/1664101095/zMMJszbp_Gasshow-MusicEnc.lrc"}]};
-				  options.element = document.getElementById("aplayer-QeEsnJZc");
+				  options.element = document.getElementById("aplayer-JYCzspYt");
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -235,7 +235,9 @@
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/09/26/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
